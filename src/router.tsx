@@ -1,9 +1,19 @@
-import MainPage from './pages/MainPage';
-import { createBrowserRouter } from 'react-router-dom';
-import type { RouteItem } from 'router';
 import App from './App';
+import { createBrowserRouter } from 'react-router-dom';
 
-const routerData: RouteItem[] = [];
+import MainPage from './pages/MainPage';
+import StudyPage from './pages/StudyPage';
+import type { RouteItem } from 'router';
+
+const routerData: RouteItem[] = [
+  {
+    id: 1,
+    path: 'study',
+    label: 'Study',
+    withAuth: false,
+    element: <StudyPage />,
+  },
+];
 
 const router = [
   {
