@@ -4,6 +4,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 import StudyPage from './pages/StudyPage';
 import type { RouteItem } from 'router';
+import ErrorPage from './pages/ErrorPage';
 
 const routerData: RouteItem[] = [
   {
@@ -19,6 +20,7 @@ const router = [
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       ...routerData.map((item) => {
         return {
