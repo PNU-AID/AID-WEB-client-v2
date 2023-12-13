@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <header className="fixed flex w-full h-20 bg-white p-7">
+      <header className="fixed z-10 flex w-full h-20 bg-white p-7">
         <h3 className="flex justify-start flex-1">AI Developers</h3>
         <div className="flex grow justify-evenly">
           {headerData.map((item) => (

@@ -17,7 +17,7 @@ function MainFirst() {
       <br />
       <br />
       -Marvin Minsky-
-      <div className="scroll-indicator">
+      <div className="absolute animate-bounce bottom-10">
         <MdKeyboardDoubleArrowDown color={colors.secondary} size={50} />
       </div>
     </div>
