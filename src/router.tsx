@@ -10,7 +10,7 @@ import ApplyPage from './pages/ApplyPage';
 import ErrorPage from './pages/ErrorPage';
 import type { RouteItem } from 'router';
 
-const routerData: RouteItem[] = [
+export const routerData: RouteItem[] = [
   {
     id: 0,
     path: '',
