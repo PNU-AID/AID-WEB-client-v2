@@ -14,7 +14,7 @@ export const routerData: RouteItem[] = [
   {
     id: 0,
     path: '',
-    label: 'Home',
+    label: 'Main',
     withAuth: false,
     element: <MainPage />,
   },
