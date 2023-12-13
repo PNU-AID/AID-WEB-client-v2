@@ -1,5 +1,11 @@
+import MainFirst from '../components/Main/MainFirst';
+
 function MainPage() {
-  return <div>This is Main Page.</div>;
+  return (
+    <div className="w-full h-full">
+      <MainFirst />
+    </div>
+  );
 }
 
 export default MainPage;
