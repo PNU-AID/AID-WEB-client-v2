@@ -1,13 +1,13 @@
 import type { ButtonProps } from 'button';
 
-export const Button = ({
+function Button({
   primary = false,
   size = 'medium',
   label,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   const baseClasses =
-    'border-0 rounded cursor-pointer inline-block leading-normal';
+    'border-0 rounded cursor-pointer inline-block leading-normal w-fit';
   const primaryClasses = 'text-white bg-primary hover:opacity-90';
   const secondaryClasses = 'text-text-primary bg-transparent hover:bg-gray-200';
   const sizeClasses = {
@@ -27,4 +27,6 @@ export const Button = ({
       {label}
     </button>
   );
-};
+}
+
+export default Button;

@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom';
-import { routerData } from '../../router';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll } from 'framer-motion';
-import { Button } from '../button/Button';
+
+import Button from '../button/Button';
+import { routerData } from '../../router';
+import { colors } from './Color';
+import { isNotAuthPage, isDarkPage } from '../../utils/location';
 
 function Header() {
+  const location = useLocation();
   const { scrollYProgress } = useScroll();
-  const headerData = routerData.filter(
-    (item) => item.label !== 'Login' && item.label !== 'Register'
-  );
+  const headerData = routerData.filter((item) => isNotAuthPage(item.path));
 
   return (
     <>
@@ -31,8 +33,14 @@ function Header() {
           </div>
         </div>
         <motion.div
-          className="absolute bottom-0 w-full h-0.5 bg-black"
-          style={{ scaleX: scrollYProgress, transformOrigin: 'left' }}
+          className="absolute bottom-0 w-full h-1"
+          style={{
+            scaleX: scrollYProgress,
+            transformOrigin: 'left',
+            backgroundColor: isDarkPage(location.pathname)
+              ? colors.primary
+              : 'black',
+          }}
         />
       </header>
     </>

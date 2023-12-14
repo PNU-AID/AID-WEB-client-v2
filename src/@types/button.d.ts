@@ -4,5 +4,6 @@ declare module 'button' {
     size?: 'small' | 'medium' | 'large';
     label: string;
     onClick?: () => void;
+    type?: 'button' | 'submit' | 'reset';
   }
 }
