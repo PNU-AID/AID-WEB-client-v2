@@ -7,6 +7,10 @@ export default {
       colors: {
         primary: '#3563E9',
         secondary: '#424242',
+        darkdarkgray: '#191F28',
+        tprimary: '#757575',
+        tsecondary: '#B0B8C1',
+        tthird: '#8B95A1',
       },
     },
   },

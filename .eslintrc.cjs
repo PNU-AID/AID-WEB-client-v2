@@ -5,6 +5,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:storybook/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -15,7 +16,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/jsx-sort-props': 'warn',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
     'react/prop-types': 'off',
   },
 };
