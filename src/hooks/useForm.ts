@@ -6,14 +6,18 @@ function useForm({ initialValues, validate, onSubmit }: UseFormProps) {
   const [errors, setErrors] = useState<FormState>({});
   const [touched, setTouched] = useState<FormState>({});
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleBlur = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleBlur = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setTouched({
       ...touched,
       [e.target.name]: true,
@@ -24,10 +28,10 @@ function useForm({ initialValues, validate, onSubmit }: UseFormProps) {
     e.preventDefault();
 
     setTouched(
-      Object.keys(values).reduce((touched, field) => {
-        touched[field] = true;
-        return touched;
-      }, {})
+      Object.keys(values).reduce((touch, field) => {
+        touch[field] = true;
+        return touch;
+      }, {} as FormState)
     );
 
     const errors = validate(values);
