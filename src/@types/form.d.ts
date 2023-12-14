@@ -5,8 +5,8 @@ declare module 'form' {
     label: string;
     value: string;
     error: boolean;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    onBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   }
 
   export interface UseFormProps {
@@ -16,6 +16,7 @@ declare module 'form' {
   }
 
   export interface UserForm {
+    [key: string]: string;
     name: string;
     major: string;
     number: string;
