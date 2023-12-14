@@ -1,5 +1,5 @@
-import MainFirst from '../components/Main/MainFirst';
-import MainSecond from '../components/Main/MainSecond';
+import MainFirst from '../components/main/MainFirst';
+import MainSecond from '../components/main/MainSecond';
 
 function MainPage() {
   return (
