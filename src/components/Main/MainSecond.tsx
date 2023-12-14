@@ -1,7 +1,7 @@
 import { motion, useScroll } from 'framer-motion';
 
 function MainSecond() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({ offset: ['50vh', '100vh'] });
 
   return (
     <div className="flex items-center justify-center w-full h-screen font-bold text-center">
