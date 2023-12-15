@@ -1,7 +1,7 @@
 import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 import { colors } from '../common/Color';
 
-function MainFirst() {
+function MainFirstComponent() {
   return (
     <div className="flex items-center justify-center w-full h-screen text-4xl font-bold text-center text-white bg-primary">
       문제는
@@ -24,4 +24,4 @@ function MainFirst() {
   );
 }
 
-export default MainFirst;
+export default MainFirstComponent;
