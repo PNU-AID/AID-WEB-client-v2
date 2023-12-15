@@ -1,11 +1,11 @@
-import MainFirst from '../components/main/MainFirst';
-import MainSecond from '../components/main/MainSecond';
+import MainFirstComponent from '../components/mainpage/MainFirstComponent';
+import MainSecondComponent from '../components/mainpage/MainSecondComponent';
 
 function MainPage() {
   return (
     <div className="w-full h-full">
-      <MainFirst />
-      <MainSecond />
+      <MainFirstComponent />
+      <MainSecondComponent />
     </div>
   );
 }

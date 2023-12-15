@@ -1,6 +1,6 @@
 import { motion, useScroll } from 'framer-motion';
 
-function MainSecond() {
+function MainSecondComponent() {
   const { scrollYProgress } = useScroll({ offset: ['50vh', '100vh'] });
 
   return (
@@ -17,4 +17,4 @@ function MainSecond() {
   );
 }
 
-export default MainSecond;
+export default MainSecondComponent;

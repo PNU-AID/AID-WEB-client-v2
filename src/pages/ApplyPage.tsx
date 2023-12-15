@@ -1,4 +1,4 @@
-import ApplyComponent from '../components/apply/ApplyComponent';
+import ApplyComponent from '../components/applypage/ApplyComponent';
 
 function ApplyPage() {
   return (

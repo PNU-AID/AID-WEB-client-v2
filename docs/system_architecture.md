@@ -4,7 +4,7 @@
 
 - node: 18 이상
 - yarn: 1.22.19
-- vite: ^4.4.5
+- vite: 5.0.0
 - react: 18
 - react-dom: 18
 - react-router-dom: 6
@@ -13,4 +13,4 @@
 
 ## Pipeline
 
-![](./pipeline.png)
+![](./pnu-aid-web-pipeline-v2.png)
