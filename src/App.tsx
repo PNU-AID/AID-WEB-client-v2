@@ -14,7 +14,9 @@ function App() {
   return (
     <GeneralLayout>
       <Header />
-      <Outlet />
+      <main className="w-full h-full">
+        <Outlet />
+      </main>
       <Bottom />
     </GeneralLayout>
   );

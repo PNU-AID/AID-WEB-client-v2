@@ -3,10 +3,10 @@ import MainSecondComponent from '../components/mainpage/MainSecondComponent';
 
 function MainPage() {
   return (
-    <div className="w-full h-full">
+    <>
       <MainFirstComponent />
       <MainSecondComponent />
-    </div>
+    </>
   );
 }
 

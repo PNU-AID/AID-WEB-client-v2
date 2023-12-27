@@ -3,7 +3,7 @@ import { colors } from '../common/Color';
 
 function MainFirstComponent() {
   return (
-    <div className="flex items-center justify-center w-full h-screen text-4xl font-bold text-center text-white bg-primary">
+    <section className="flex items-center justify-center w-full h-screen text-4xl font-bold text-center text-white bg-primary">
       문제는
       <br />
       <br />
@@ -20,7 +20,7 @@ function MainFirstComponent() {
       <div className="absolute animate-bounce bottom-10">
         <MdKeyboardDoubleArrowDown color={colors.secondary} size={50} />
       </div>
-    </div>
+    </section>
   );
 }
 

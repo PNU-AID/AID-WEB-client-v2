@@ -13,7 +13,7 @@ function Bottom() {
   }, [location.pathname]);
 
   return (
-    <div
+    <footer
       className={`flex flex-col w-full h-[80vh] px-28 py-16  ${
         darkMode
           ? 'bg-darkdarkgray text-tsecondary'
@@ -26,14 +26,14 @@ function Bottom() {
       <div className="text-md">회장 박시형 (asdf1234@gmail.com)</div>
       <div className="text-md">홍길동 부회장 (qwer0987@gmail.com)</div>
       <div className="flex w-full h-full">
-        <div className="flex items-center justify-center flex-1 m-12 bg-gray-500">
+        <figure className="flex items-center justify-center flex-1 m-12 bg-gray-500">
           회장님 프사
-        </div>
-        <div className="flex items-center justify-center flex-1 m-12 bg-gray-500">
+        </figure>
+        <figure className="flex items-center justify-center flex-1 m-12 bg-gray-500">
           회장님 개요
-        </div>
+        </figure>
       </div>
-    </div>
+    </footer>
   );
 }
 

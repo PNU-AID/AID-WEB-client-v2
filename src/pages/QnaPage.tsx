@@ -1,5 +1,5 @@
 function QnaPage() {
-  return <div>This is QnA Page.</div>;
+  return <section>This is QnA Page.</section>;
 }
 
 export default QnaPage;
