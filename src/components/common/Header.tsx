@@ -19,7 +19,7 @@ function Header() {
           <h3 className="flex justify-start flex-1" id="aid-logo">
             AI Developers
           </h3>
-          <div className="flex items-center grow justify-evenly">
+          <nav className="flex items-center grow justify-evenly">
             {headerData.map((item) => (
               <div className="" key={item.label}>
                 <Link to={item.path}>
@@ -27,7 +27,7 @@ function Header() {
                 </Link>
               </div>
             ))}
-          </div>
+          </nav>
           <div className="flex justify-end flex-1 gap-4 w-1/8">
             <button>Login</button> | <button>Register</button>
           </div>
