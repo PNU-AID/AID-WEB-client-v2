@@ -5,7 +5,7 @@ function InputForm(data: InputFormProps) {
     <div className="flex flex-col w-full h-full gap-4">
       <label>{data.label}</label>
       <input
-        className="w-[500px] h-10 bg-white  rounded-md text-black px-4 outline-none"
+        className="w-[500px] h-10 bg-white rounded-md text-black px-4 border-[1px] border-black"
         name={data.name}
         onBlur={data.onBlur}
         onChange={data.onChange}
