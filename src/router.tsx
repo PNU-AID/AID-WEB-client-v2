@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ApplyPage from './pages/ApplyPage';
 import ErrorPage from './pages/ErrorPage';
 import type { RouteItem } from 'router';
+import LoginPage from './pages/LoginPage';
 
 export const routerData: RouteItem[] = [
   {
@@ -52,6 +53,13 @@ export const routerData: RouteItem[] = [
     label: 'Apply',
     withAuth: false,
     element: <ApplyPage />,
+  },
+  {
+    id: 6,
+    path: 'login',
+    label: 'Login',
+    withAuth: false,
+    element: <LoginPage />,
   },
 ];
 

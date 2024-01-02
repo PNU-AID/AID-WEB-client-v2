@@ -34,7 +34,7 @@ function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    'border-0 rounded cursor-pointer inline-block leading-normal w-fit';
+    'border-0 rounded cursor-pointer inline-block leading-normal w-fit h-fit';
   const primaryClasses = 'text-white bg-primary hover:opacity-90';
   const secondaryClasses = 'text-text-primary bg-transparent hover:bg-gray-200';
   const sizeClasses = {

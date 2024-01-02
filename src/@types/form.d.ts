@@ -1,12 +1,18 @@
 declare module 'form' {
   export interface InputFormProps {
+    size?: 'md' | 'lg';
     type: string;
     name: string;
     label: string;
     value: string;
     error: boolean;
-    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-    onBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    className?: string;
+    onChange: (
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => void;
+    onBlur: (
+      e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => void;
   }
 
   export interface UseFormProps {
