@@ -10,6 +10,7 @@ import ApplyPage from './pages/ApplyPage';
 import ErrorPage from './pages/ErrorPage';
 import type { RouteItem } from 'router';
 import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 export const routerData: RouteItem[] = [
   {
@@ -60,6 +61,13 @@ export const routerData: RouteItem[] = [
     label: 'Login',
     withAuth: false,
     element: <LoginPage />,
+  },
+  {
+    id: 7,
+    path: 'register',
+    label: 'Register',
+    withAuth: false,
+    element: <RegisterPage />,
   },
 ];
 

@@ -15,7 +15,7 @@ function InputForm(data: InputFormProps) {
       <div className="flex flex-col h-full gap-3">
         <label>{data.label}</label>
         <input
-          className={`w-[350px] h-9 bg-white rounded-md text-black px-4 border-[1px] border-black`}
+          className={`min-w-[280px] sm:min-w-[350px] h-9 bg-white rounded-md text-black px-4 border border-black`}
           name={data.name}
           onBlur={data.onBlur}
           onChange={data.onChange}
