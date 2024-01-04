@@ -1,5 +1,5 @@
 function StudyPage() {
-  return <div>This is Study Page.</div>;
+  return <section>This is Study Page.</section>;
 }
 
 export default StudyPage;

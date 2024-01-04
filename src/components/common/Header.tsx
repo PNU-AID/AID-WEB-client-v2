@@ -14,12 +14,12 @@ function Header() {
   return (
     <>
       <header className="fixed z-10 w-full h-16 bg-white">
-        <div className="flex items-center w-full h-full p-7">
+        <div className="flex items-center w-full h-full justify-evenly p-7">
           {/* TODO: 로고 이미지로 대체해야함. */}
-          <h3 className="flex justify-start flex-1" id="aid-logo">
+          <h3 className="flex justify-start" id="aid-logo">
             AI Developers
           </h3>
-          <div className="flex items-center grow justify-evenly">
+          <nav className="flex items-center ">
             {headerData.map((item) => (
               <div className="" key={item.label}>
                 <Link to={item.path}>
@@ -27,10 +27,7 @@ function Header() {
                 </Link>
               </div>
             ))}
-          </div>
-          <div className="flex justify-end flex-1 gap-4 w-1/8">
-            <button>Login</button> | <button>Register</button>
-          </div>
+          </nav>
         </div>
         <motion.div
           className="absolute bottom-0 w-full h-1"
