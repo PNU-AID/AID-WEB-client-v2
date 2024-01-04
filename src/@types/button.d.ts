@@ -5,5 +5,6 @@ declare module 'button' {
     label: string;
     onClick?: () => void;
     type?: 'button' | 'submit' | 'reset';
+    className?: string;
   }
 }
