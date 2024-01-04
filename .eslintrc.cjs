@@ -17,6 +17,7 @@ module.exports = {
     ],
     'react/jsx-sort-props': 'warn',
     'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'react/prop-types': 'off',
   },
 };

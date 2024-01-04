@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 function InputForm(data: InputFormProps) {
   const [inputSize, setInputSize] = useState<string>('400px');
+
   useEffect(() => {
     if (!data.size || data.size === 'lg') {
       setInputSize('500px');
