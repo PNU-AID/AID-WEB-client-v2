@@ -5,10 +5,10 @@ import InputForm from '../components/form/InputForm';
 function LoginPage() {
   return (
     <section className="flex items-center justify-center w-full min-h-screen bg-primary">
-      <div className="flex flex-col items-center justify-around w-1/2 h-[55vh] p-4 bg-white shadow-2xl mt-10">
+      <div className="flex flex-col items-center gap-6 p-10 bg-white shadow-2xl w-full m-4 sm:max-w-[800px] h-fit rounded-lg">
         <p className="mb-8 text-3xl font-bold text-black">AID 로그인</p>
         <form
-          className="flex flex-col items-center gap-4 h-1/2"
+          className="flex flex-col items-center gap-4 min-h-1/2"
           id="login-form"
         >
           <InputForm
@@ -32,10 +32,12 @@ function LoginPage() {
             value={''}
           />
         </form>
-        <Button label="로그인" primary />
-        <Link className="hover:text-primary" to="/register">
-          회원가입
-        </Link>
+        <div className="flex flex-col items-center gap-2 mt-4">
+          <Button label="로그인" primary />
+          <Link className="hover:text-primary" to="/register">
+            회원가입
+          </Link>
+        </div>
       </div>
     </section>
   );

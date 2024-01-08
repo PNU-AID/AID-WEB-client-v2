@@ -50,9 +50,7 @@ function Button({
   ].join(' ');
 
   return (
-    <button className={classes} {...props}>
-      {label}
-    </button>
+    <button className={[classes, props.className].join(' ')}>{label}</button>
   );
 }
 
