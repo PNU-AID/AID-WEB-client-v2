@@ -60,11 +60,11 @@ function ApplyComponent() {
 
   return (
     <form
-      className="flex flex-col items-center w-3/4 gap-12 p-12"
+      className="flex flex-wrap items-center justify-center w-full m-12"
       onSubmit={handleSubmit}
     >
       {/* TODO: InputForm과 BioForm의 크기가 일정하지 않다. 개선해야 한다. */}
-      <div className="grid w-full grid-cols-2 gap-8">
+      <div className="max-w-[1000px] grid grid-cols-2 gap-8">
         <InputForm
           error={touched?.name && errors.name}
           label="이름"
@@ -120,18 +120,19 @@ function ApplyComponent() {
           type="text"
           value={values.url}
         />
-      </div>
-      <BioForm
-        error={touched?.bio && errors.bio}
-        label="개요"
-        name="bio"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        type="text"
-        value={values.bio}
-      />
+        <BioForm
+          className="mt-8"
+          error={touched?.bio && errors.bio}
+          label="개요"
+          name="bio"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          type="text"
+          value={values.bio}
+        />
 
-      <Button label="지원하기" primary size="medium" type="submit" />
+        <Button label="지원하기" primary size="medium" type="submit" />
+      </div>
     </form>
   );
 }
