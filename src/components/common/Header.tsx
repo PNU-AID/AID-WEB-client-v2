@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import Button from '../button/Button';
 import { routerData } from '../../router';
-import { isNotAuthPage } from '../../utils/location';
+import { isDarkPage, isNotAuthPage } from '../../utils/location';
 import MenuIconSvg from '../../assets/menu-icon.svg?react';
 
 function Header() {
@@ -32,8 +32,12 @@ function Header() {
     };
   }, [lastScrollY]);
 
+  let textCss = 'text-black';
   useEffect(() => {
     setIsExpanded(false);
+    if (isDarkPage(location.pathname)) {
+      textCss = 'text-white';
+    }
   }, [location]);
 
   return (
@@ -51,7 +55,11 @@ function Header() {
           className={[
             'flex justify-start ml-6 text-2xl font-bold',
             'transition-all duration-300',
-            lastScrollY > 0 || isExpanded ? 'text-black' : 'text-white',
+            !isDarkPage(location.pathname)
+              ? 'text-black'
+              : lastScrollY > 0 || isExpanded
+                ? textCss
+                : 'text-white',
           ].join(' ')}
           id="aid-logo"
         >
@@ -75,9 +83,14 @@ function Header() {
           {headerData.map((item) => (
             <Link key={item.label} to={item.path}>
               <Button
-                className={
-                  location.pathname.slice(1) === item.path ? 'font-bold' : ''
-                }
+                className={[
+                  location.pathname.slice(1) === item.path ? 'font-bold' : '',
+                  !isDarkPage(location.pathname)
+                    ? 'text-black'
+                    : lastScrollY > 0 || isExpanded
+                      ? textCss
+                      : 'text-white',
+                ].join(' ')}
                 label={item.label}
                 size="large"
               />
