@@ -4,10 +4,18 @@ import QnaSection from '../components/qnapage/QnaSection';
 import { QnaCategory, QnaContentItem } from '../type/qna';
 import { useState, useEffect, useRef } from 'react';
 import { qnaCategoryList } from '../data/qna-data';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 function QnaPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryId = searchParams.get('category');
+  const currentCategoryId = categoryId
+    ? (Number(categoryId) as QnaCategory)
+    : QnaCategory.TOP;
+
   const [isFocused, setIsFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,13 +30,11 @@ function QnaPage() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
-  const [currentCategoryId, setCurrentCategoryId] = useState<QnaCategory>(
-    QnaCategory.TOP
-  );
 
   const onClickCategory = (category: QnaCategory) => {
-    setCurrentCategoryId(category);
     console.log(category);
+    setSearchParams({ category: category.toString() });
+    navigate('/qna?category=' + category);
   };
 
   const searchResults: QnaContentItem[] = [];
