@@ -35,7 +35,7 @@ export const qnaCategoryList: QnaCategoryItem[] = [
       },
       {
         contentId: 8,
-        contentTitle: '코딩 잘해야 하나요?',
+        contentTitle: '코딩 잘해야 하나요??',
         content: 'ㅁㄹㄴㅇㄻㅇㄹㄴㅁㄹ',
         categoryId: QnaCategory.TOP,
         date: '2024-01-14',

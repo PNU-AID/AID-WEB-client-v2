@@ -1,10 +1,10 @@
 import { SlMagnifier } from 'react-icons/sl';
 import QnaSidebar from '../components/qnapage/QnaSidebar';
 import QnaSection from '../components/qnapage/QnaSection';
-import { QnaCategory, QnaContentItem } from '../type/qna';
+import { QnaCategory, QnaCategoryItem, QnaContentItem } from '../type/qna';
 import { useState, useEffect, useRef } from 'react';
-import { qnaCategoryList } from '../data/qna-data';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { getCategoryList } from '../utils/qna';
 
 function QnaPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,6 +17,9 @@ function QnaPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
+  const [qnaCategoryList, setQnaCategoryList] = useState<
+    QnaCategoryItem[] | null
+  >([]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -39,15 +42,32 @@ function QnaPage() {
 
   const searchResults: QnaContentItem[] = [];
 
-  qnaCategoryList.forEach((category) => {
-    category.contentList.forEach((content) => {
-      if (
-        content.contentTitle.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        searchResults.push(content);
-      }
+  useEffect(() => {
+    const fetch = async () => {
+      const list = await getCategoryList();
+      setQnaCategoryList(list);
+    };
+
+    fetch();
+  }, [])
+
+  if (qnaCategoryList) {
+    qnaCategoryList.forEach((category) => {
+      category.contentList.forEach((content) => {
+        if (
+          content.contentTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        ) {
+          searchResults.push(content);
+        }
+      });
     });
-  });
+  }
+
+  if (!qnaCategoryList) {
+    return (
+      <p>Loading...</p>
+    )
+  }
 
   return (
     <div className="w-full min-h-screen px-[200px] py-[120px]">
@@ -90,8 +110,8 @@ function QnaPage() {
           )}
         </div>
         <div className="relative flex">
-          <QnaSidebar onClick={onClickCategory} />
-          <QnaSection qnaCategoryId={currentCategoryId} />
+          <QnaSidebar categoryList={qnaCategoryList} onClick={onClickCategory}/>
+          <QnaSection contentList={qnaCategoryList[currentCategoryId].contentList}/>
         </div>
       </div>
     </div>

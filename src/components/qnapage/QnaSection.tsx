@@ -1,20 +1,15 @@
-import { qnaCategoryList } from '../../data/qna-data';
-import { QnaCategory } from '../../type/qna';
+import { QnaContentItem } from '../../type/qna';
 import { QnaButton } from './QnaButton';
 
 interface QnaSectionProps {
-  qnaCategoryId: QnaCategory;
+  contentList: QnaContentItem[];
 }
 
-export default function QnaSection(props: QnaSectionProps) {
-  const selectedCategoryContentList = qnaCategoryList.find((item) => {
-    return item.categoryId === props.qnaCategoryId;
-  });
-
+export default function QnaSection({contentList}: QnaSectionProps) {
   return (
     <section className="w-full h-full gap-8 ml-20">
-      {selectedCategoryContentList &&
-        selectedCategoryContentList.contentList.map((item) => {
+      {contentList &&
+        contentList.map((item) => {
           return (
             <QnaButton
               isContent={true}
