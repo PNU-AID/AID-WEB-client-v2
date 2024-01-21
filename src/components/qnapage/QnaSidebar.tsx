@@ -7,15 +7,15 @@ interface QnaSidebarProps {
 
 }
 
-export default function QnaSidebar(props: QnaSidebarProps) {
+export default function QnaSidebar({categoryList, onClick}: QnaSidebarProps) {
   return (
     <aside className="h-fit w-[200px] bg-white flex flex-col gap-4">
-      {props.categoryList.map((item) => {
+      {categoryList.map((item) => {
         return (
           <QnaButton
             key={item.categoryId}
             label={item.categoryName}
-            onClick={() => props.onClick(item.categoryId)}
+            onClick={() => onClick(item.categoryId)}
           />
         );
       })}
