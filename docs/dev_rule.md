@@ -44,5 +44,10 @@ declare module 'router' {
 
 ## Testing
 
-- 컴포넌트 테스팅에는 Storybook을 사용한다.
 - 성능 테스팅에는 React Testing Library를 사용한다.
+
+## Mocking
+
+- 프론트엔드 개발 시, API 모킹을 위해 MSW 라이브러리를 사용한다.
+- 개발 시 필요한 테스트 API를 `/src/mocks/handlers.ts`에 작성한다.
+- 개발(Dev) 환경에서만 동작하기 때문에 프로덕션 환경에서는 신경쓰지 않아도 된다.

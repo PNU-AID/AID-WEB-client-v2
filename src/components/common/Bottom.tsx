@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { isDarkPage } from '../../utils/location';
 
 function Bottom() {
   const [darkMode, setDarkMode] = useState(true);
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname === '/apply' || location.pathname === '/login') {
-      setDarkMode(false);
-    } else {
+    if (isDarkPage(location.pathname)) {
       setDarkMode(true);
+    } else {
+      setDarkMode(false);
     }
   }, [location.pathname]);
 

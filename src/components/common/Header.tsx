@@ -5,6 +5,7 @@ import Button from '../button/Button';
 import { routerData } from '../../router';
 import { isDarkPage, isNotAuthPage } from '../../utils/location';
 import MenuIconSvg from '../../assets/menu-icon.svg?react';
+import AidLogoImg from '../../assets/aid-logo.png';
 
 function Header() {
   const location = useLocation();
@@ -50,21 +51,27 @@ function Header() {
           isVisible ? '' : '-translate-y-full',
         ].join(' ')}
       >
-        {/* TODO: 로고 이미지로 대체해야함. */}
-        <h3
-          className={[
-            'flex justify-start ml-6 text-2xl font-bold',
-            'transition-all duration-300',
-            !isDarkPage(location.pathname)
-              ? 'text-black'
-              : lastScrollY > 0 || isExpanded
-                ? textCss
-                : 'text-white',
-          ].join(' ')}
-          id="aid-logo"
-        >
-          AI Developers
-        </h3>
+        <div className="relative">
+          <img
+            className="absolute top-0 bottom-0 m-auto"
+            src={AidLogoImg}
+            width={20}
+          />
+          <h3
+            className={[
+              'flex justify-start ml-8 text-2xl font-bold',
+              'transition-all duration-300',
+              !isDarkPage(location.pathname)
+                ? 'text-black'
+                : lastScrollY > 0 || isExpanded
+                  ? textCss
+                  : 'text-white',
+            ].join(' ')}
+            id="aid-logo"
+          >
+            AI Developers
+          </h3>
+        </div>
         <MenuIconSvg
           className="sm:hidden"
           onClick={() => setIsExpanded(!isExpanded)}

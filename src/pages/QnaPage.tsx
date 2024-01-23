@@ -1,14 +1,25 @@
 import { SlMagnifier } from 'react-icons/sl';
 import QnaSidebar from '../components/qnapage/QnaSidebar';
 import QnaSection from '../components/qnapage/QnaSection';
-import { QnaCategory, QnaContentItem } from '../type/qna';
+import { QnaCategory, QnaCategoryItem, QnaContentItem } from '../type/qna';
 import { useState, useEffect, useRef } from 'react';
-import { qnaCategoryList } from '../data/qna-data';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { getCategoryList } from '../utils/qna';
 
 function QnaPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryId = searchParams.get('category');
+  const currentCategoryId = categoryId
+    ? (Number(categoryId) as QnaCategory)
+    : QnaCategory.TOP;
+
   const [isFocused, setIsFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
+  const [qnaCategoryList, setQnaCategoryList] = useState<
+    QnaCategoryItem[] | null
+  >([]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -22,26 +33,41 @@ function QnaPage() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [ref]);
-  const [currentCategoryId, setCurrentCategoryId] = useState<QnaCategory>(
-    QnaCategory.TOP
-  );
 
   const onClickCategory = (category: QnaCategory) => {
-    setCurrentCategoryId(category);
     console.log(category);
+    setSearchParams({ category: category.toString() });
+    navigate('/qna?category=' + category);
   };
 
   const searchResults: QnaContentItem[] = [];
 
-  qnaCategoryList.forEach((category) => {
-    category.contentList.forEach((content) => {
-      if (
-        content.contentTitle.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        searchResults.push(content);
-      }
+  useEffect(() => {
+    const fetch = async () => {
+      const list = await getCategoryList();
+      setQnaCategoryList(list);
+    };
+
+    fetch();
+  }, [])
+
+  if (qnaCategoryList) {
+    qnaCategoryList.forEach((category) => {
+      category.contentList.forEach((content) => {
+        if (
+          content.contentTitle.toLowerCase().includes(searchTerm.toLowerCase())
+        ) {
+          searchResults.push(content);
+        }
+      });
     });
-  });
+  }
+
+  if (!qnaCategoryList) {
+    return (
+      <p>Loading...</p>
+    )
+  }
 
   return (
     <div className="w-full min-h-screen px-[200px] py-[120px]">
@@ -84,8 +110,8 @@ function QnaPage() {
           )}
         </div>
         <div className="relative flex">
-          <QnaSidebar onClick={onClickCategory} />
-          <QnaSection qnaCategoryId={currentCategoryId} />
+          <QnaSidebar categoryList={qnaCategoryList} onClick={onClickCategory}/>
+          <QnaSection contentList={qnaCategoryList[currentCategoryId].contentList}/>
         </div>
       </div>
     </div>
