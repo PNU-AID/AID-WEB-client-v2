@@ -3,7 +3,7 @@ import QnaSidebar from '../components/qnapage/QnaSidebar';
 import QnaSection from '../components/qnapage/QnaSection';
 import { QnaCategory, QnaCategoryItem, QnaContentItem } from '../type/qna';
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { getCategoryList } from '../utils/qna';
 import QnaDetailSection from '../components/qnapage/QnaDetailSection';
 
@@ -18,7 +18,6 @@ function QnaPage() {
 
   const [isFocused, setIsFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate();
   const ref = useRef<HTMLDivElement>(null);
   const [qnaCategoryList, setQnaCategoryList] = useState<
     QnaCategoryItem[] | null
