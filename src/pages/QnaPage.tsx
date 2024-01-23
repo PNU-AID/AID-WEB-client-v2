@@ -5,6 +5,7 @@ import { QnaCategory, QnaCategoryItem, QnaContentItem } from '../type/qna';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { getCategoryList } from '../utils/qna';
+import QnaDetailSection from '../components/qnapage/QnaDetailSection';
 
 function QnaPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,6 +13,8 @@ function QnaPage() {
   const currentCategoryId = categoryId
     ? (Number(categoryId) as QnaCategory)
     : QnaCategory.TOP;
+
+  const contentId = searchParams.get('content');
 
   const [isFocused, setIsFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +40,6 @@ function QnaPage() {
   const onClickCategory = (category: QnaCategory) => {
     console.log(category);
     setSearchParams({ category: category.toString() });
-    navigate('/qna?category=' + category);
   };
 
   const searchResults: QnaContentItem[] = [];
@@ -49,7 +51,7 @@ function QnaPage() {
     };
 
     fetch();
-  }, [])
+  }, []);
 
   if (qnaCategoryList) {
     qnaCategoryList.forEach((category) => {
@@ -64,10 +66,15 @@ function QnaPage() {
   }
 
   if (!qnaCategoryList) {
-    return (
-      <p>Loading...</p>
-    )
+    return <p>Loading...</p>;
   }
+
+  const handleQnaButtonClick = (contentId: number) => {
+    setSearchParams({
+      category: currentCategoryId.toString(),
+      content: contentId.toString(),
+    });
+  };
 
   return (
     <div className="w-full min-h-screen px-[200px] py-[120px]">
@@ -109,10 +116,28 @@ function QnaPage() {
             </ul>
           )}
         </div>
-        <div className="relative flex">
-          <QnaSidebar categoryList={qnaCategoryList} onClick={onClickCategory}/>
-          <QnaSection contentList={qnaCategoryList[currentCategoryId].contentList}/>
-        </div>
+        {qnaCategoryList[currentCategoryId] && (
+          <div className="relative flex">
+            <QnaSidebar
+              categoryList={qnaCategoryList}
+              onClick={onClickCategory}
+            />
+            {contentId ? (
+              <QnaDetailSection
+                qnaContent={
+                  qnaCategoryList[currentCategoryId].contentList.find(
+                    (content) => content.contentId === Number(contentId)
+                  )!
+                }
+              />
+            ) : (
+              <QnaSection
+                contentList={qnaCategoryList[currentCategoryId].contentList}
+                handleQnaButtonClick={handleQnaButtonClick}
+              />
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -3,9 +3,13 @@ import { QnaButton } from './QnaButton';
 
 interface QnaSectionProps {
   contentList: QnaContentItem[];
+  handleQnaButtonClick: (contentId: number) => void;
 }
 
-export default function QnaSection({contentList}: QnaSectionProps) {
+export default function QnaSection({
+  contentList,
+  handleQnaButtonClick,
+}: QnaSectionProps) {
   return (
     <section className="w-full h-full gap-8 ml-20">
       {contentList &&
@@ -15,7 +19,7 @@ export default function QnaSection({contentList}: QnaSectionProps) {
               isContent={true}
               key={item.contentId}
               label={'Q.  ' + item.contentTitle}
-              onClick={() => {}}
+              onClick={() => handleQnaButtonClick(item.contentId)}
             />
           );
         })}

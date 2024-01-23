@@ -2,6 +2,7 @@ export interface QnaButtonProps {
   onClick: () => void;
   label: string;
   isContent?: boolean;
+  isActivate?: boolean;
 }
 
 export interface QnaContentItem {
