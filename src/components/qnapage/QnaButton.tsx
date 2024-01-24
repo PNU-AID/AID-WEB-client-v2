@@ -4,6 +4,8 @@ export function QnaButton(props: QnaButtonProps) {
   let baseCss = 'text-xl font-semibold text-tthird';
   if (props.isContent) {
     baseCss = 'text-lg font-medium text-secondary';
+  } else if (props.isActivate) {
+    baseCss = 'text-xl font-semibold text-primary';
   }
 
   return (

@@ -1,5 +1,6 @@
 import { http, HttpResponse } from 'msw';
 import { qnaCategoryList } from '../data/qna-data';
+import { NewsItemList } from '../data/news-data.';
 
 export const handlers = [
   http.post('/auth', () => {
@@ -34,5 +35,11 @@ export const handlers = [
   }),
   http.get('/homepage/api/qna/category', () => {
     return HttpResponse.json(qnaCategoryList);
+  }),
+  http.get('/homepage/api/news', () => {
+    return HttpResponse.json({
+      code: 200,
+      data: NewsItemList,
+    });
   }),
 ];
