@@ -8,7 +8,12 @@
  * @returns Dark Mode를 사용하는 페이지인 경우 true, 그렇지 않으면 false를 반환합니다.
  */
 export function isDarkPage(path: string) {
-  return path === '/apply' || path === '/about' || path === '/register';
+  return (
+    path === '/' ||
+    path === '/apply' ||
+    path === '/about' ||
+    path === '/register'
+  );
 }
 
 /**
