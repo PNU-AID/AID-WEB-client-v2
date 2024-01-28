@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { NewsItem } from '../type/news';
 import { getNewsList } from '../utils/news';
-import { NewsSectionFirst } from '../components/newspage/NewsSectionFirst';
+import { NewsSection1 } from '../components/newspage/NewsSection1';
+import { NewsSection2 } from '../components/newspage/NewsSection2';
+import { NewsSection3 } from '../components/newspage/NewsSection3';
 
 function NewsPage() {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
@@ -15,8 +17,10 @@ function NewsPage() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen px-[100px] py-[120px] flex">
-      <NewsSectionFirst newsList={newsList} />
+    <div className="w-[100vw] min-h-screen px-[100px] py-[120px] flex justify-evenly">
+      <NewsSection1 newsList={newsList} />
+      <NewsSection2 newsList={newsList} />
+      <NewsSection3 newsList={newsList} />
     </div>
   );
 }
