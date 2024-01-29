@@ -65,7 +65,7 @@ function Header() {
                 ? 'text-black'
                 : lastScrollY > 0 || isExpanded
                   ? textCss
-                  : 'text-white',
+                  : 'text-black',
             ].join(' ')}
             id="aid-logo"
           >
@@ -96,7 +96,7 @@ function Header() {
                     ? 'text-black'
                     : lastScrollY > 0 || isExpanded
                       ? textCss
-                      : 'text-white',
+                      : 'text-black',
                 ].join(' ')}
                 label={item.label}
                 size="large"
