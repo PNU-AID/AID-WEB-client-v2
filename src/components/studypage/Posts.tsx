@@ -1,12 +1,12 @@
 import { useState, ChangeEvent } from 'react';
-import { categoryData, onOffline, studyData } from '../../assets/data';
 import { StudyItem } from '../../type/study';
+import { StudyItemList, categoryData, onOffline } from '../../data/study-data';
 import Select from './Select';
 import Search from './Search';
 import Modal from './Modal';
 
 function Posts() {
-  const [study, setStudy] = useState<StudyItem[]>(studyData);
+  const [study, setStudy] = useState<StudyItem[]>(StudyItemList);
   const [status, setStatus] = useState<boolean>(false);
   const [category, setCategory] = useState<string>('전체');
   const [selectedStudy, setSelectedStudy] = useState<StudyItem | null>(null);
@@ -17,10 +17,10 @@ function Posts() {
     setStatus(false);
     setCategory(selectedCategory);
     if (selectedCategory === '전체') {
-      setStudy(studyData);
+      setStudy(StudyItemList);
     } else {
       setStudy(
-        studyData.filter((item) => {
+        StudyItemList.filter((item) => {
           return item.category === selectedCategory;
         })
       );
@@ -30,14 +30,13 @@ function Posts() {
   const filterStatus = () => {
     setStatus((prevStatus) => {
       const newStatus = !prevStatus;
-      setStudy((prevStudy) => {
-        if (newStatus) {
-          return prevStudy.filter((item) => item.status === '모집 중');
-        } else {
-          filterCategory(category);
-          return studyData;
-        }
-      });
+      if (newStatus) {
+        setStudy((prevStudy) =>
+          prevStudy.filter((item) => item.status === '모집 중')
+        );
+      } else {
+        filterCategory(category);
+      }
       return newStatus;
     });
   };
@@ -104,15 +103,17 @@ function Posts() {
                 <span>{item.category}</span>
                 <span>~{item.date}</span>
               </div>
-              <p className="text-xl font-bold text-gray-800">{item.name}</p>
+              <p className="text-xl font-bold text-gray-800">
+                {item.studyName}
+              </p>
               <p className="mt-2 overflow-hidden text-sm text-gray-600 h-36">
-                {item.description}
+                {item.studyDescription}
               </p>
               <div className="flex items-center mt-3 text-sm text-gray-700">
                 <img
                   alt={item.leader}
                   className="w-6 h-6 mr-2 rounded-full"
-                  src={item.image}
+                  src={item.imgUrl}
                 />
                 {item.leader}
               </div>

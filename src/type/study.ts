@@ -1,15 +1,18 @@
 import { ChangeEvent } from 'react';
 
 export interface StudyItem {
-  name: string;
+  id: number;
+  leaderId: number;
+  status: string;
+  studyName: string;
+  studyDescription: string;
+  imgUrl: string;
+  // 추가
   category: string;
   date: string;
   number: string;
   target: string;
-  image: string;
   leader: string;
-  status: string;
-  description: string;
 }
 
 export interface OptionProps {

@@ -15,7 +15,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedStudy }) => {
           ✕
         </button>
         <p className="mb-4 text-2xl font-bold text-center">
-          {selectedStudy.name}
+          {selectedStudy.studyName}
         </p>
         <div className="mb-4 text-base text-gray-600">
           <p>📚 카테고리: {selectedStudy.category}</p>
@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedStudy }) => {
         <div className="overflow-hidden max-h-40">
           <p className="mb-4 text-base text-gray-700">
             📝 모집 설명 <br />
-            {selectedStudy.description}
+            {selectedStudy.studyDescription}
             스터디 url은 ~~입니다.
           </p>
         </div>
