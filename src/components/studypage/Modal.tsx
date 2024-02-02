@@ -1,10 +1,4 @@
-import { StudyCard } from './Posts';
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  selectedStudy: StudyCard | null;
-}
+import { ModalProps } from '../../type/study';
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedStudy }) => {
   if (!isOpen || !selectedStudy) {

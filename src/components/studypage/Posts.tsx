@@ -1,26 +1,15 @@
 import { useState, ChangeEvent } from 'react';
 import { categoryData, onOffline, studyData } from '../../assets/data';
+import { StudyItem } from '../../type/study';
 import Select from './Select';
 import Search from './Search';
 import Modal from './Modal';
 
-export interface StudyCard {
-  name: string;
-  category: string;
-  date: string;
-  description: string;
-  target: string;
-  number: string;
-  image: string;
-  leader: string;
-  status: string;
-}
-
 function Posts() {
-  const [study, setStudy] = useState<StudyCard[]>(studyData);
+  const [study, setStudy] = useState<StudyItem[]>(studyData);
   const [status, setStatus] = useState<boolean>(false);
   const [category, setCategory] = useState<string>('전체');
-  const [selectedStudy, setSelectedStudy] = useState<StudyCard | null>(null);
+  const [selectedStudy, setSelectedStudy] = useState<StudyItem | null>(null);
   const [selectedOption, setSelectedOption] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -58,7 +47,7 @@ function Posts() {
     setSelectedOption(value);
   };
 
-  const handleStudyClick = (selectedStudy: StudyCard) => {
+  const handleStudyClick = (selectedStudy: StudyItem) => {
     setSelectedStudy(selectedStudy);
     setIsModalOpen(true);
   };
