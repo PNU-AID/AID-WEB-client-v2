@@ -3,7 +3,11 @@ import { colors } from '../common/Color';
 import AidMainBanner from '/public/aid-main-banner.jpg';
 import { motion } from 'framer-motion';
 
-function MainFirstComponent({ activeSection }) {
+interface MainFirstComponentProps {
+  activeSection: number;
+}
+
+function MainFirstComponent({ activeSection }: MainFirstComponentProps) {
   const index0 = 0;
   return (
     <section className="relative flex items-center justify-center w-full h-screen text-4xl font-bold leading-[100px] text-center text-white ">

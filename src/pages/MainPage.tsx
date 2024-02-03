@@ -9,7 +9,8 @@ function MainPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('.scroll-section');
+      const sections =
+        document.querySelectorAll<HTMLElement>('.scroll-section');
 
       sections.forEach((section, index) => {
         const sectionTop = section.offsetTop - window.innerHeight / 2;
