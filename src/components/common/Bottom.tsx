@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { isDarkPage } from '../../utils/location';
+import { isDarkPage } from '@util/location';
 
 function Bottom() {
   const [darkMode, setDarkMode] = useState(true);

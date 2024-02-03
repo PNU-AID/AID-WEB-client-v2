@@ -2,16 +2,16 @@ import App from './App';
 import { createBrowserRouter } from 'react-router-dom';
 
 import type { RouteItem } from 'router';
-import MainPage from './pages/MainPage';
-import StudyPage from './pages/StudyPage';
-import QnaPage from './pages/QnaPage';
-import NewsPage from './pages/NewsPage';
-import AboutPage from './pages/AboutPage';
-import ApplyPage from './pages/ApplyPage';
-import ErrorPage from './pages/ErrorPage';
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
-import FaqPage from './pages/FaqPage';
+import MainPage from '@page/MainPage';
+import StudyPage from '@page/StudyPage';
+import QnaPage from '@page/QnaPage';
+import NewsPage from '@page/NewsPage';
+import AboutPage from '@page/AboutPage';
+import ApplyPage from '@page/ApplyPage';
+import ErrorPage from '@page/ErrorPage';
+import LoginPage from '@page/LoginPage';
+import RegisterPage from '@page/RegisterPage';
+import FaqPage from '@page/FaqPage';
 
 export const routerData: RouteItem[] = [
   {

@@ -1,5 +1,5 @@
 import { MdArrowBack } from 'react-icons/md';
-import { FaqContentItem } from '../../type/faq';
+import { FaqContentItem } from '@type/faq';
 import { useSearchParams } from 'react-router-dom';
 
 interface FaqSectionProps {

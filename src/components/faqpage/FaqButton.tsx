@@ -1,4 +1,9 @@
-import { FaqButtonProps } from '../../type/faq';
+interface FaqButtonProps {
+  onClick: () => void;
+  label: string;
+  isContent?: boolean;
+  isActivate?: boolean;
+}
 
 export default function FaqButton(props: FaqButtonProps) {
   let baseCss = 'text-xl font-semibold text-tthird';

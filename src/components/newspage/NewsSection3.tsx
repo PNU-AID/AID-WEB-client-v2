@@ -1,5 +1,5 @@
-import { NewsItem } from '../../type/news';
-import { NewsRecentCard } from './NewsRecentCard';
+import { NewsItem } from '@type/news';
+import { NewsRecentCard } from '@component/newspage/NewsRecentCard';
 
 interface NewsSection3Props {
   newsList: NewsItem[];

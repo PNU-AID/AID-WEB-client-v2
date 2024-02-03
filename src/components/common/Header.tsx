@@ -3,9 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 import Button from '../button/Button';
 import { routerData } from '../../router';
-import { isDarkPage } from '../../utils/location';
-import MenuIconSvg from '../../assets/menu-icon.svg?react';
-import AidLogoImg from '../../assets/aid-logo.png';
+import { isDarkPage } from '@util/location';
+import MenuIconSvg from '@asset/menu-icon.svg?react';
+import AidLogoImg from '@asset/aid-logo.png';
 
 function Header() {
   const location = useLocation();

@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
-import Button from '../components/button/Button';
-import InputForm from '../components/form/InputForm';
 import { useRef } from 'react';
-import { postSignup } from '../apis/auth';
-import { isEmail } from '../utils/form';
+import { Link } from 'react-router-dom';
+
+import Button from '@component/button/Button';
+import InputForm from '@component/form/InputForm';
+import { postSignup } from '@api/auth';
+import { isEmail } from '@util/form';
 
 function RegisterPage() {
   const nicknameRef = useRef<HTMLInputElement>(null);

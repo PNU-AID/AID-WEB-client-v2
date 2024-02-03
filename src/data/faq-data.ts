@@ -1,4 +1,4 @@
-import { FaqCategory, FaqCategoryItem } from '../type/faq';
+import { FaqCategory, FaqCategoryItem } from '@type/faq';
 
 export const faqCategoryList: FaqCategoryItem[] = [
   {

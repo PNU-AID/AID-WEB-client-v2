@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { NewsItem } from '../../type/news';
+import { NewsItem } from '@type/news';
 
 interface NewsRecentCardProps {
   recentItem: NewsItem;

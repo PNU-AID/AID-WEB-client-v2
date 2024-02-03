@@ -1,4 +1,4 @@
-import ContactSection from '../components/qnapage/ContactSection';
+import ContactSection from '@component/qnapage/ContactSection';
 
 function QnaPage() {
   return (

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import Button from '../components/button/Button';
-import InputForm from '../components/form/InputForm';
+import Button from '@component/button/Button';
+import InputForm from '@component/form/InputForm';
 import { useRef } from 'react';
-import { postLogin } from '../apis/auth';
+import { postLogin } from '@api/auth';
 
 function LoginPage() {
   const emailRef = useRef<HTMLInputElement>(null);

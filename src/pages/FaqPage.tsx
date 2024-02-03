@@ -1,4 +1,4 @@
-import FaqSection from '../components/faqpage/FaqSection';
+import FaqSection from '@component/faqpage/FaqSection';
 
 function FaqPage() {
   return (

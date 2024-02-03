@@ -1,30 +1,24 @@
-import { SlMagnifier } from 'react-icons/sl';
-import FaqDetailSection from './FaqDetailSection';
-import FaqListSection from './FaqListSection';
-import FaqSidebar from './FaqSidebar';
-import { FaqCategory, FaqCategoryItem, FaqContentItem } from '../../type/faq';
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { getCategoryList } from '../../apis/faq';
+import { SlMagnifier } from 'react-icons/sl';
+
+import { FaqCategory, FaqCategoryItem, FaqContentItem } from '@type/faq';
+import FaqDetailSection from '@component/faqpage/FaqDetailSection';
+import FaqListSection from '@component/faqpage/FaqListSection';
+import FaqSidebar from '@component/faqpage/FaqSidebar';
+import { getCategoryList } from '@api/faq';
 
 export default function FaqSection() {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
+  const contentId = searchParams.get('content');
   const categoryId = searchParams.get('category');
   const currentCategoryId = categoryId
     ? (Number(categoryId) as FaqCategory)
     : FaqCategory.TOP;
-
-  const contentId = searchParams.get('content');
-
-  const { data: faqCategoryList } = useQuery<FaqCategoryItem[]>({
-    queryKey: 'faqCategoryList',
-    queryFn: getCategoryList,
-  });
-
-  const [isFocused, setIsFocused] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,10 +33,13 @@ export default function FaqSection() {
     };
   }, [divRef]);
 
-  const onClickCategory = (category: FaqCategory) => {
-    console.log(category);
-    setSearchParams({ category: category.toString() });
-  };
+  const { data: faqCategoryList } = useQuery<FaqCategoryItem[]>({
+    queryKey: 'faqCategoryList',
+    queryFn: () => getCategoryList(),
+  });
+  if (!faqCategoryList) {
+    return <p>Loading...</p>;
+  }
 
   const searchResults: FaqContentItem[] = [];
   if (faqCategoryList) {
@@ -57,16 +54,17 @@ export default function FaqSection() {
     });
   }
 
-  const handleFaqButtonClick = (contentId: number) => {
+  const handleCategory = (category: FaqCategory) => {
+    // console.log(category);
+    setSearchParams({ category: category.toString() });
+  };
+
+  const handleFaqButton = (contentId: number) => {
     setSearchParams({
       category: currentCategoryId.toString(),
       content: contentId.toString(),
     });
   };
-
-  if (!faqCategoryList) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <section className="flex flex-col items-center justify-center gap-y-2 max-w-[1000px]">
@@ -114,10 +112,7 @@ export default function FaqSection() {
       </div>
       {faqCategoryList[currentCategoryId] && (
         <div className="relative flex w-full" id="faq-body">
-          <FaqSidebar
-            categoryList={faqCategoryList}
-            onClick={onClickCategory}
-          />
+          <FaqSidebar categoryList={faqCategoryList} onClick={handleCategory} />
           {contentId ? (
             <FaqDetailSection
               faqContent={
@@ -129,7 +124,7 @@ export default function FaqSection() {
           ) : (
             <FaqListSection
               contentList={faqCategoryList[currentCategoryId].contentList}
-              handleFaqButtonClick={handleFaqButtonClick}
+              handleFaqButtonClick={handleFaqButton}
             />
           )}
         </div>

@@ -1,5 +1,6 @@
 import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 import { colors } from '../common/Color';
+import AidMainBanner from '/public/aid-main-banner.jpg';
 
 export function MainFirstComponent() {
   return (

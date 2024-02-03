@@ -1,9 +1,10 @@
-import { NewsItem } from '../type/news';
-import { getNewsList } from '../apis/news';
-import { NewsSection1 } from '../components/newspage/NewsSection1';
-import { NewsSection2 } from '../components/newspage/NewsSection2';
-import { NewsSection3 } from '../components/newspage/NewsSection3';
 import { useQuery } from 'react-query';
+
+import { NewsItem } from '@type/news';
+import { getNewsList } from '@api/news';
+import { NewsSection1 } from '@component/newspage/NewsSection1';
+import { NewsSection2 } from '@component/newspage/NewsSection2';
+import { NewsSection3 } from '@component/newspage/NewsSection3';
 
 function NewsPage() {
   const { data: newsList } = useQuery<NewsItem[]>({

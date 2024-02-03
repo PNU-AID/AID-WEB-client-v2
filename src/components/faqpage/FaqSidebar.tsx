@@ -1,5 +1,5 @@
-import { FaqCategory, FaqCategoryItem } from '../../type/faq';
-import FaqButton from './FaqButton';
+import { FaqCategory, FaqCategoryItem } from '@type/faq';
+import FaqButton from '@component/faqpage/FaqButton';
 import { useSearchParams } from 'react-router-dom';
 
 interface FaqSidebarProps {

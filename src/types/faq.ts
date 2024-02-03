@@ -1,10 +1,3 @@
-export interface FaqButtonProps {
-  onClick: () => void;
-  label: string;
-  isContent?: boolean;
-  isActivate?: boolean;
-}
-
 export enum FaqCategory {
   TOP = 0,
   REGISTER,

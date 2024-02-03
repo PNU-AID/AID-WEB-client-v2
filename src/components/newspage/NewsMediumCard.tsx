@@ -1,4 +1,4 @@
-import { NewsItem } from '../../type/news';
+import { NewsItem } from '@type/news';
 import { motion } from 'framer-motion';
 
 interface NewsMediumCardProps {

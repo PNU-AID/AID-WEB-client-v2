@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
-import { faqCategoryList } from '../data/faq-data';
-import { NewsItemList } from '../data/news-data.';
+import { faqCategoryList } from '@data/faq-data';
+import { NewsItemList } from '@data/news-data.';
 
 export const handlers = [
   http.post('/auth', () => {

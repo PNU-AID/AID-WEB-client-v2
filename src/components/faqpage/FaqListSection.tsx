@@ -1,5 +1,5 @@
-import { FaqContentItem } from '../../type/faq';
-import FaqButton from './FaqButton';
+import { FaqContentItem } from '@type/faq';
+import FaqButton from '@component/faqpage/FaqButton';
 
 interface FaqSectionProps {
   contentList: FaqContentItem[];

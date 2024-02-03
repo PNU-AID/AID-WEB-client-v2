@@ -1,5 +1,5 @@
-import { NewsItem } from '../../type/news';
-import { NewsLargeCard } from './NewsLargeCard';
+import { NewsItem } from '@type/news';
+import { NewsLargeCard } from '@component/newspage/NewsLargeCard';
 
 interface NewsSection2Props {
   newsList: NewsItem[];
