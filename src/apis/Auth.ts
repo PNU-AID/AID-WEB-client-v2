@@ -19,7 +19,7 @@ export async function postSignup(
     if (res.status >= 200 && res.status < 300) {
       return true;
     } else {
-      return false;
+      throw new Error(res.data.message);
     }
   } catch (error) {
     console.error(error);
@@ -41,7 +41,7 @@ export async function postLogin(email: string, password: string) {
     if (res.status >= 200 && res.status < 300) {
       return true;
     } else {
-      return false;
+      throw new Error(res.data.message);
     }
   } catch (error) {
     console.error(error);
