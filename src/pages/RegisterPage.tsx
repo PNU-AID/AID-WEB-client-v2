@@ -6,14 +6,14 @@ function RegisterPage() {
   return (
     <section className="flex items-center justify-center w-full min-h-screen bg-darkdarkgray">
       <div className="flex flex-col items-center gap-6 p-10 bg-white shadow-2xl w-full m-4 sm:max-w-[800px] h-fit rounded-lg">
-        <p className="text-3xl font-bold text-black">AID 회원가입</p>
+        <p className="text-6xl font-bold text-black">Signup</p>
         <form
           className="flex flex-col items-center gap-4 h-fit"
           id="register-form"
         >
           <InputForm
             error={false}
-            label="학번(Student Number)"
+            label="닉네임(Nickname)"
             name="st_number"
             onBlur={() => {}}
             onChange={() => {}}

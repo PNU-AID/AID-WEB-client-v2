@@ -5,23 +5,23 @@ export interface QnaButtonProps {
   isActivate?: boolean;
 }
 
+export enum QnaCategory {
+  TOP = 0,
+  REGISTER,
+  STUDY,
+  CONTEST,
+}
+
 export interface QnaContentItem {
   contentId: number;
   contentTitle: string;
   content: string;
-  categoryId: QnaCategory;
+  categoryId: QnaCategory; // QnaCategory Enum
   date: string;
 }
 
 export interface QnaCategoryItem {
   categoryId: QnaCategory;
   categoryName: string;
-  contentList: QnaContentItem[];
-}
-
-export enum QnaCategory {
-  TOP = 0,
-  REGISTER,
-  STUDY,
-  CONTEST,
+  contentList: QnaContentItem[]; // QnaContentItem List
 }

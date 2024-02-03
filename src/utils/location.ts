@@ -12,7 +12,7 @@ export function isDarkPage(path: string) {
     path === '/' ||
     path === '/apply' ||
     path === '/about' ||
-    path === '/register' ||
+    path === '/signup' ||
     path === '/news'
   );
 }
@@ -27,5 +27,5 @@ export function isDarkPage(path: string) {
  * @returns 인증 페이지가 아닐 경우 true, 인증 페이지일 경우 false를 반환합니다.
  */
 export function isNotAuthPage(path: string) {
-  return path !== 'login' && path !== 'register';
+  return path !== 'login' && path !== 'signup';
 }

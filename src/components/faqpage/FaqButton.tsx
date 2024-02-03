@@ -1,6 +1,6 @@
 import { QnaButtonProps } from '../../type/qna';
 
-export function QnaButton(props: QnaButtonProps) {
+export default function FaqButton(props: QnaButtonProps) {
   let baseCss = 'text-xl font-semibold text-tthird';
   if (props.isContent) {
     baseCss = 'text-lg font-medium text-secondary';

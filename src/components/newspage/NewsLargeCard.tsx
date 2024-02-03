@@ -12,7 +12,7 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
         className="overflow-hidden rounded-2xl"
         whileHover={{
           y: -10,
-          boxShadow: '0 10px 20px rgba(0,0,0,0.08)',
+          boxShadow: '0 10px 20px rgba(0,0,0,0.18)',
         }}
       >
         <div

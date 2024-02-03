@@ -11,7 +11,7 @@ export function NewsSection2({ newsList }: NewsSection2Props) {
       className="flex flex-col w-[700px] max-h-screen mx-auto overflow-hidden"
       id="news-section-2"
     >
-      <h2 className="mb-8 text-sm font-bold text-gray-500 text-start">
+      <h2 className="mb-8 text-sm font-bold text-center text-gray-500">
         방금 올라온 아티클
       </h2>
       <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-12 no-scrollbar">

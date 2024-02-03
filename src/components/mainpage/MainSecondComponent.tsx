@@ -21,6 +21,7 @@ function MainSecondComponent() {
           style={{ opacity: scrollYProgress }}
         >
           <h1 className="mb-8 text-4xl text-primary">About Us</h1>
+          <hr className="w-20 h-1 mb-20 bg-black" />
           <p>
             AID는 AI 개발에 관심있는 사람들이 함께 스터디와 세미나를 진행하고,
             대회와 프로젝트를 하며 발전하는 동아리입니다.

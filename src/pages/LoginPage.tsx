@@ -6,7 +6,7 @@ function LoginPage() {
   return (
     <section className="flex items-center justify-center w-full min-h-screen bg-primary">
       <div className="flex flex-col items-center gap-6 p-10 bg-white shadow-2xl w-full m-4 sm:max-w-[800px] h-fit rounded-lg">
-        <p className="mb-8 text-3xl font-bold text-black">AID 로그인</p>
+        <p className="mb-8 text-6xl font-bold text-black">Login</p>
         <form
           className="flex flex-col items-center gap-4 min-h-1/2"
           id="login-form"

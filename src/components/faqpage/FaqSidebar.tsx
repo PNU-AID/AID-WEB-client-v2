@@ -1,13 +1,13 @@
 import { QnaCategory, QnaCategoryItem } from '../../type/qna';
-import { QnaButton } from './QnaButton';
+import FaqButton from './FaqButton';
 import { useSearchParams } from 'react-router-dom';
 
-interface QnaSidebarProps {
+interface FaqSidebarProps {
   categoryList: QnaCategoryItem[];
   onClick: (category: QnaCategory) => void;
 }
 
-export default function QnaSidebar({ categoryList, onClick }: QnaSidebarProps) {
+export default function FaqSidebar({ categoryList, onClick }: FaqSidebarProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryId = searchParams.get('category');
 
@@ -15,7 +15,7 @@ export default function QnaSidebar({ categoryList, onClick }: QnaSidebarProps) {
     <aside className="h-fit w-[200px] bg-white flex flex-col gap-4">
       {categoryList.map((item) => {
         return (
-          <QnaButton
+          <FaqButton
             isActivate={categoryId === item.categoryId.toString()}
             key={item.categoryId}
             label={item.categoryName}

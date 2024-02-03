@@ -2,7 +2,7 @@ import { QnaCategory, QnaCategoryItem } from '../type/qna';
 
 export const qnaCategoryList: QnaCategoryItem[] = [
   {
-    categoryId: 0,
+    categoryId: QnaCategory.TOP,
     categoryName: '질문 TOP',
     contentList: [
       {
@@ -44,7 +44,7 @@ export const qnaCategoryList: QnaCategoryItem[] = [
     ],
   },
   {
-    categoryId: 1,
+    categoryId: QnaCategory.REGISTER,
     categoryName: '가입',
     contentList: [
       {
@@ -57,7 +57,7 @@ export const qnaCategoryList: QnaCategoryItem[] = [
     ],
   },
   {
-    categoryId: 2,
+    categoryId: QnaCategory.STUDY,
     categoryName: '스터디',
     contentList: [
       {
@@ -70,7 +70,7 @@ export const qnaCategoryList: QnaCategoryItem[] = [
     ],
   },
   {
-    categoryId: 3,
+    categoryId: QnaCategory.CONTEST,
     categoryName: '대회',
     contentList: [
       {
