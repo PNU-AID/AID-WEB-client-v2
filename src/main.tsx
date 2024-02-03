@@ -22,7 +22,7 @@ async function enableMocking() {
   return worker.start({
     serviceWorker: {
       url: '/homepage/mockServiceWorker.js',
-    }
+    },
   });
 }
 
