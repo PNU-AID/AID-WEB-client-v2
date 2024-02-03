@@ -15,21 +15,19 @@ function Bottom() {
 
   return (
     <footer
-      className={`flex flex-col w-full h-fit py-20 justify-center ${
+      className={`flex flex-col w-full h-fit py-16 justify-center items-center m-auto ${
         darkMode
           ? 'bg-darkdarkgray text-tsecondary'
           : 'bg-transparent text-secondary'
       }`}
     >
-      <div className="flex flex-col items-center justify-center gap-x-20">
-        <h2 className="text-sm font-bold">
-          AID (AI Developers) in PNU @ 2022 ALL RIGHTS RESERVED
-        </h2>
-        <div className="text-xs">
-          Reproduction in whole or part without written permission is strictly
-          prohibited.
-        </div>
-      </div>
+      <h2 className="text-sm font-bold">
+        AID (AI Developers) in PNU @ 2022 ALL RIGHTS RESERVED
+      </h2>
+      <p className="text-xs">
+        Reproduction in whole or part without written permission is strictly
+        prohibited.
+      </p>
     </footer>
   );
 }
