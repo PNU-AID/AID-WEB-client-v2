@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  base: '/homepage/',
+  base: '/homepage',
   test: {
     globals: true,
   },

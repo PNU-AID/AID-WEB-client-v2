@@ -1,5 +1,5 @@
 import App from './App';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 
 import type { RouteItem } from 'router';
 import MainPage from '@page/MainPage';
@@ -92,6 +92,13 @@ const router = [
         };
       }),
     ],
+  },
+  {
+    path: '',
+    element: <App />,
+    loader: async () => {
+      return redirect('/');
+    },
   },
 ];
 
