@@ -6,7 +6,7 @@ export async function getCategoryList() {
       method: 'get',
       url: '/homepage/api/qna/category',
     });
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (e) {
     console.error(e);

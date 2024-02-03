@@ -1,9 +1,9 @@
 import { MdArrowBack } from 'react-icons/md';
-import { QnaContentItem } from '../../type/qna';
+import { FaqContentItem } from '../../type/faq';
 import { useSearchParams } from 'react-router-dom';
 
 interface FaqSectionProps {
-  faqContent: QnaContentItem;
+  faqContent: FaqContentItem;
 }
 
 export default function FaqDetailSection({ faqContent }: FaqSectionProps) {

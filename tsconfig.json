@@ -19,9 +19,25 @@
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
 
-    "types": ["vite-plugin-svgr/client", "vitest/globals"]
+    "types": ["vite-plugin-svgr/client", "vitest/globals"],
+
+    /* Import Alias */
+    "baseUrl": "./src",
+    "paths": {
+      "@type/*": ["type/*"],
+      "@component/*": ["components/*"],
+      "@hook/*": ["hooks/*"],
+      "@util/*": ["utils/*"],
+      "@style/*": ["styles/*"],
+      "@asset/*": ["assets/*"],
+      "@page/*": ["pages/*"],
+      "@data/*": ["data/*"],
+      "@api/*": ["apis/*"],
+      "@store/*": ["stores/*"],
+    },
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

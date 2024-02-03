@@ -2,58 +2,51 @@ import { SlMagnifier } from 'react-icons/sl';
 import FaqDetailSection from './FaqDetailSection';
 import FaqListSection from './FaqListSection';
 import FaqSidebar from './FaqSidebar';
-import { QnaCategory, QnaCategoryItem, QnaContentItem } from '../../type/qna';
+import { FaqCategory, FaqCategoryItem, FaqContentItem } from '../../type/faq';
 import { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { getCategoryList } from '../../utils/qna';
+import { useQuery } from 'react-query';
+import { getCategoryList } from '../../apis/faq';
 
 export default function FaqSection() {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryId = searchParams.get('category');
   const currentCategoryId = categoryId
-    ? (Number(categoryId) as QnaCategory)
-    : QnaCategory.TOP;
+    ? (Number(categoryId) as FaqCategory)
+    : FaqCategory.TOP;
 
   const contentId = searchParams.get('content');
 
+  const { data: faqCategoryList } = useQuery<FaqCategoryItem[]>({
+    queryKey: 'faqCategoryList',
+    queryFn: getCategoryList,
+  });
+
   const [isFocused, setIsFocused] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const ref = useRef<HTMLDivElement>(null);
-  const [qnaCategoryList, setQnaCategoryList] = useState<
-    QnaCategoryItem[] | null
-  >([]);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (divRef.current && !divRef.current.contains(event.target as Node)) {
         setIsFocused(false);
       }
-    }
+    };
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [ref]);
+  }, [divRef]);
 
-  const onClickCategory = (category: QnaCategory) => {
+  const onClickCategory = (category: FaqCategory) => {
     console.log(category);
     setSearchParams({ category: category.toString() });
   };
 
-  const searchResults: QnaContentItem[] = [];
-
-  useEffect(() => {
-    const fetch = async () => {
-      const list = await getCategoryList();
-      setQnaCategoryList(list);
-    };
-
-    fetch();
-  }, []);
-
-  if (qnaCategoryList) {
-    qnaCategoryList.forEach((category) => {
+  const searchResults: FaqContentItem[] = [];
+  if (faqCategoryList) {
+    faqCategoryList.forEach((category) => {
       category.contentList.forEach((content) => {
         if (
           content.contentTitle.toLowerCase().includes(searchTerm.toLowerCase())
@@ -64,16 +57,16 @@ export default function FaqSection() {
     });
   }
 
-  if (!qnaCategoryList) {
-    return <p>Loading...</p>;
-  }
-
-  const handleQnaButtonClick = (contentId: number) => {
+  const handleFaqButtonClick = (contentId: number) => {
     setSearchParams({
       category: currentCategoryId.toString(),
       content: contentId.toString(),
     });
   };
+
+  if (!faqCategoryList) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <section className="flex flex-col items-center justify-center gap-y-2 max-w-[1000px]">
@@ -82,7 +75,7 @@ export default function FaqSection() {
       <div
         className="relative w-full m-4 border-b border-gray-400 h-fit focus:border-primary"
         id="faq-search"
-        ref={ref}
+        ref={divRef}
       >
         <SlMagnifier
           className="absolute top-0 left-0 m-auto bottom-4"
@@ -119,24 +112,24 @@ export default function FaqSection() {
           </ul>
         )}
       </div>
-      {qnaCategoryList[currentCategoryId] && (
+      {faqCategoryList[currentCategoryId] && (
         <div className="relative flex w-full" id="faq-body">
           <FaqSidebar
-            categoryList={qnaCategoryList}
+            categoryList={faqCategoryList}
             onClick={onClickCategory}
           />
           {contentId ? (
             <FaqDetailSection
               faqContent={
-                qnaCategoryList[currentCategoryId].contentList.find(
+                faqCategoryList[currentCategoryId].contentList.find(
                   (content) => content.contentId === Number(contentId)
                 )!
               }
             />
           ) : (
             <FaqListSection
-              contentList={qnaCategoryList[currentCategoryId].contentList}
-              handleQnaButtonClick={handleQnaButtonClick}
+              contentList={faqCategoryList[currentCategoryId].contentList}
+              handleFaqButtonClick={handleFaqButtonClick}
             />
           )}
         </div>

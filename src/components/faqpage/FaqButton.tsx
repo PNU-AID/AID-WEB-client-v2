@@ -1,6 +1,6 @@
-import { QnaButtonProps } from '../../type/qna';
+import { FaqButtonProps } from '../../type/faq';
 
-export default function FaqButton(props: QnaButtonProps) {
+export default function FaqButton(props: FaqButtonProps) {
   let baseCss = 'text-xl font-semibold text-tthird';
   if (props.isContent) {
     baseCss = 'text-lg font-medium text-secondary';

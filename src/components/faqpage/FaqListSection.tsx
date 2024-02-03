@@ -1,15 +1,15 @@
-import { QnaContentItem } from '../../type/qna';
+import { FaqContentItem } from '../../type/faq';
 import FaqButton from './FaqButton';
 
-interface QnaSectionProps {
-  contentList: QnaContentItem[];
-  handleQnaButtonClick: (contentId: number) => void;
+interface FaqSectionProps {
+  contentList: FaqContentItem[];
+  handleFaqButtonClick: (contentId: number) => void;
 }
 
 export default function FaqListSection({
   contentList,
-  handleQnaButtonClick,
-}: QnaSectionProps) {
+  handleFaqButtonClick,
+}: FaqSectionProps) {
   return (
     <section className="flex flex-col w-[600px] h-[600px] overflow-y-auto">
       {contentList &&
@@ -19,7 +19,7 @@ export default function FaqListSection({
               isContent={true}
               key={item.contentId}
               label={'Q.  ' + item.contentTitle}
-              onClick={() => handleQnaButtonClick(item.contentId)}
+              onClick={() => handleFaqButtonClick(item.contentId)}
             />
           );
         })}

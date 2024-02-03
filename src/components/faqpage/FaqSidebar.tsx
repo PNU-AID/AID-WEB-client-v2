@@ -1,10 +1,10 @@
-import { QnaCategory, QnaCategoryItem } from '../../type/qna';
+import { FaqCategory, FaqCategoryItem } from '../../type/faq';
 import FaqButton from './FaqButton';
 import { useSearchParams } from 'react-router-dom';
 
 interface FaqSidebarProps {
-  categoryList: QnaCategoryItem[];
-  onClick: (category: QnaCategory) => void;
+  categoryList: FaqCategoryItem[];
+  onClick: (category: FaqCategory) => void;
 }
 
 export default function FaqSidebar({ categoryList, onClick }: FaqSidebarProps) {

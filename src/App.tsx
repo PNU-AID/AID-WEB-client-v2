@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import GeneralLayout from './pages/GeneralLayout';
 import Header from './components/common/Header';
 import Bottom from './components/common/Bottom';
+import AidQeuryClient from './stores/AidQeuryClient';
 
 function App() {
   const location = useLocation();
@@ -12,13 +13,15 @@ function App() {
   }, [location]);
 
   return (
-    <GeneralLayout>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Bottom />
-    </GeneralLayout>
+    <AidQeuryClient>
+      <GeneralLayout>
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Bottom />
+      </GeneralLayout>
+    </AidQeuryClient>
   );
 }
 

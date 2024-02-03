@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { qnaCategoryList } from '../data/qna-data';
+import { faqCategoryList } from '../data/faq-data';
 import { NewsItemList } from '../data/news-data.';
 
 export const handlers = [
@@ -33,8 +33,8 @@ export const handlers = [
       ],
     });
   }),
-  http.get('/homepage/api/qna/category', () => {
-    return HttpResponse.json(qnaCategoryList);
+  http.get('/homepage/api/faq/category', () => {
+    return HttpResponse.json(faqCategoryList);
   }),
   http.get('/homepage/api/news', () => {
     return HttpResponse.json({

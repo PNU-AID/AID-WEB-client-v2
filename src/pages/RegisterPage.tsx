@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Button from '../components/button/Button';
 import InputForm from '../components/form/InputForm';
 import { useRef } from 'react';
-import { postSignup } from '../apis/Auth';
+import { postSignup } from '../apis/auth';
 import { isEmail } from '../utils/form';
 
 function RegisterPage() {

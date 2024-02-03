@@ -6,7 +6,7 @@ export async function getNewsList() {
       method: 'get',
       url: '/homepage/api/news',
     });
-    console.log(res.data);
+    //console.log(res.data);
     if (res.data.code === 200) {
       return res.data.data;
     } else {
