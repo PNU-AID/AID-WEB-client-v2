@@ -21,6 +21,12 @@ export const routerData: RouteItem[] = [
     element: <MainPage />,
   },
   {
+    path: 'news',
+    label: 'News',
+    withAuth: false,
+    element: <NewsPage />,
+  },
+  {
     path: 'study',
     label: 'Study',
     withAuth: false,
@@ -37,12 +43,6 @@ export const routerData: RouteItem[] = [
     label: 'Q&A',
     withAuth: false,
     element: <QnaPage />,
-  },
-  {
-    path: 'news',
-    label: 'News',
-    withAuth: false,
-    element: <NewsPage />,
   },
   {
     path: 'about',

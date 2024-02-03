@@ -3,14 +3,14 @@ import { Link, useLocation } from 'react-router-dom';
 
 import Button from '../button/Button';
 import { routerData } from '../../router';
-import { isDarkPage } from '@util/location';
+import { isDarkPage, isNotHeader } from '@util/location';
 import MenuIconSvg from '@asset/menu-icon.svg?react';
 import AidLogoImg from '@asset/aid-logo.png';
 
 function Header() {
   const location = useLocation();
   const headerData = routerData.filter(
-    (item) => item.path !== 'signup' && !item.hidden
+    (item) => isNotHeader(item.path) && !item.hidden
   );
 
   const [isVisible, setIsVisible] = useState(true);
@@ -52,7 +52,7 @@ function Header() {
         isVisible ? '' : '-translate-y-full',
       ].join(' ')}
     >
-      <div className="relative">
+      <Link className="relative" to="/">
         <img
           className="absolute top-0 bottom-0 m-auto"
           src={AidLogoImg}
@@ -72,7 +72,7 @@ function Header() {
         >
           AI Developers
         </h3>
-      </div>
+      </Link>
       <MenuIconSvg
         className="sm:hidden"
         onClick={() => setIsExpanded(!isExpanded)}

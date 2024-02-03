@@ -29,3 +29,7 @@ export function isDarkPage(path: string) {
 export function isNotAuthPage(path: string) {
   return path !== 'login' && path !== 'signup';
 }
+
+export function isNotHeader(path: string) {
+  return path !== '' && path !== 'signup' && path !== 'about';
+}
