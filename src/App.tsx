@@ -5,6 +5,7 @@ import GeneralLayout from './pages/GeneralLayout';
 import Header from '@component/common/Header';
 import Bottom from '@component/common/Bottom';
 import AidQeuryClient from '@store/AidQeuryClient';
+import AuthContextProvider from '@store/AuthContext';
 
 function App() {
   const location = useLocation();
@@ -15,13 +16,15 @@ function App() {
 
   return (
     <AidQeuryClient>
-      <GeneralLayout>
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Bottom />
-      </GeneralLayout>
+      <AuthContextProvider>
+        <GeneralLayout>
+          <Header />
+          <main>
+            <Outlet />
+          </main>
+          <Bottom />
+        </GeneralLayout>
+      </AuthContextProvider>
     </AidQeuryClient>
   );
 }

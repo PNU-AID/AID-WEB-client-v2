@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@component/button/Button';
 import InputForm from '@component/form/InputForm';
 import { useRef } from 'react';
 import { postLogin } from '@api/auth';
+import { useAuthCtx } from '@store/AuthContext';
+import { AuthActionType } from '@type/auth';
 
 function LoginPage() {
+  const { authDispatch } = useAuthCtx();
+  const navigate = useNavigate();
+
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
@@ -19,9 +24,18 @@ function LoginPage() {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
 
-      const res = await postLogin(email, password);
-      if (res) {
+      const data = await postLogin(email, password);
+      if (data) {
         alert('로그인 성공!');
+        authDispatch({
+          type: AuthActionType.LOGIN,
+          payload: {
+            authInfo: {
+              email: data.email,
+            },
+          },
+        });
+        navigate('/');
       } else {
         alert('로그인 실패！');
       }
