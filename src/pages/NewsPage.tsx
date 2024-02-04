@@ -1,22 +1,27 @@
-import { useEffect, useState } from 'react';
-import { NewsItem } from '../type/news';
-import { getNewsList } from '../utils/news';
-import { NewsSectionFirst } from '../components/newspage/NewsSectionFirst';
+import { useQuery } from 'react-query';
+
+import { NewsItem } from '@type/news';
+import { getNewsList } from '@api/news';
+import { NewsSection1 } from '@component/newspage/NewsSection1';
+import { NewsSection2 } from '@component/newspage/NewsSection2';
+import { NewsSection3 } from '@component/newspage/NewsSection3';
 
 function NewsPage() {
-  const [newsList, setNewsList] = useState<NewsItem[]>([]);
-
-  useEffect(() => {
-    const fetch = async () => {
-      const newList = await getNewsList();
-      setNewsList(newList);
-    };
-    fetch();
-  }, []);
+  const { data: newsList } = useQuery<NewsItem[]>({
+    queryKey: 'newsList',
+    queryFn: getNewsList,
+    staleTime: 1000 * 60 * 10,
+  });
 
   return (
-    <div className="w-full min-h-screen px-[100px] py-[120px] flex">
-      <NewsSectionFirst newsList={newsList} />
+    <div className="w-[100vw] min-h-screen px-[100px] py-[120px] flex justify-evenly">
+      {newsList && (
+        <>
+          <NewsSection1 newsList={newsList} />
+          <NewsSection2 newsList={newsList} />
+          <NewsSection3 newsList={newsList} />
+        </>
+      )}
     </div>
   );
 }

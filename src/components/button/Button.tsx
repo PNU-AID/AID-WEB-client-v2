@@ -50,7 +50,12 @@ function Button({
   ].join(' ');
 
   return (
-    <button className={[classes, props.className].join(' ')}>{label}</button>
+    <button
+      className={[classes, props.className].join(' ')}
+      onClick={props.onClick}
+    >
+      {label}
+    </button>
   );
 }
 

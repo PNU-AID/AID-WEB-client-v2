@@ -5,4 +5,4 @@ Allow: /qna
 Allow: /news
 Allow: /apply
 Disallow: /login
-Disallow: /register
+Disallow: /signup

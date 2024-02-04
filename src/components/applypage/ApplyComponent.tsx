@@ -1,9 +1,9 @@
 import InputForm from '../form/InputForm';
-import useForm from '../../hooks/useForm';
+import useForm from '@hook/useForm';
 import Button from '../button/Button';
 import BioForm from '../form/BioForm';
 import type { FormState, UserForm } from 'form';
-import { isEmail, isPhoneNumber, isUrl } from '../../utils/form';
+import { isEmail, isPhoneNumber, isUrl } from '@util/form';
 
 function ApplyComponent() {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =

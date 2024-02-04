@@ -4,7 +4,7 @@ declare module 'form' {
     type: string;
     name: string;
     label: string;
-    value: string;
+    value?: string;
     error: boolean;
     className?: string;
     onChange: (
