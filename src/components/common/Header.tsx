@@ -63,6 +63,7 @@ function Header() {
       <div className="flex items-center w-full justify-evenly">
         <Link className="relative" to="/">
           <img
+            alt="aid-logo"
             className="absolute top-0 bottom-0 m-auto"
             src={AidLogoImg}
             width={20}
