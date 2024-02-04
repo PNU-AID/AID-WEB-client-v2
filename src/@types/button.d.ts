@@ -3,7 +3,7 @@ declare module 'button' {
     primary?: boolean;
     size?: 'small' | 'medium' | 'large';
     label: string;
-    onClick?: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>;
+    onClick?: () => void | Promise<void>;
     type?: 'button' | 'submit' | 'reset';
     className?: string;
   }

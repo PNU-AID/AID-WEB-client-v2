@@ -21,7 +21,7 @@ function BioForm(data: InputFormProps) {
         value={data.value}
       />
       <div className="text-right text-gray-400">
-        ({data.value.length}/500자)
+        ({data.value ? data.value.length : 0}/500자)
       </div>
       {data.error && <p className="text-red-500">필수 입력 항목입니다.</p>}
     </div>

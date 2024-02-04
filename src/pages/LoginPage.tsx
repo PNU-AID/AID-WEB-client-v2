@@ -13,8 +13,7 @@ function LoginPage() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleLogin = async () => {
     if (
       emailRef.current &&
       emailRef.current.value &&
@@ -31,6 +30,7 @@ function LoginPage() {
           type: AuthActionType.LOGIN,
           payload: {
             authInfo: {
+              nickname: 'Kim',
               email: data.email,
             },
           },

@@ -12,8 +12,7 @@ function RegisterPage() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
-  const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSignup = async () => {
     if (
       nicknameRef.current &&
       nicknameRef.current.value &&
