@@ -1,16 +1,39 @@
-import MainFirstComponent from '../components/mainpage/MainFirstComponent';
-import MainSecondComponent from '../components/mainpage/MainSecondComponent';
-import AidMainBanner from '../assets/aid-main-banner.png';
+import { useEffect, useState } from 'react';
+import MainFirstComponent from '@component/mainpage/MainFirstComponent';
+import MainSecondComponent from '@component/mainpage/MainSecondComponent';
+import { useScroll } from 'framer-motion';
 
 function MainPage() {
+  const [activeSection, setActiveSection] = useState(0);
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections =
+        document.querySelectorAll<HTMLElement>('.scroll-section');
+
+      sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop - window.innerHeight / 2;
+        const sectionHeight = section.clientHeight;
+        if (
+          scrollY.get() > sectionTop &&
+          scrollY.get() <= sectionTop + sectionHeight
+        ) {
+          setActiveSection(index);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <img
-        className="fixed min-h-screen min-w-screen -z-10"
-        src={AidMainBanner}
-      />
-      <MainFirstComponent />
-      <MainSecondComponent />
+      <MainFirstComponent activeSection={activeSection} />
+      <MainSecondComponent activeSection={activeSection} />
     </>
   );
 }
