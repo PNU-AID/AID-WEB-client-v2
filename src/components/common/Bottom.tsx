@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { isDarkPage } from '@util/location';
+import { MdEmail, MdMap } from 'react-icons/md';
 
 function Bottom() {
   const [darkMode, setDarkMode] = useState(true);
@@ -15,14 +16,12 @@ function Bottom() {
 
   return (
     <footer
-      className={`flex flex-col w-full h-fit py-8 justify-center items-center m-auto ${
+      className={`flex flex-col relative w-full h-fit py-8 justify-center items-center m-auto ${
         darkMode
           ? 'bg-darkdarkgray text-tsecondary'
           : 'bg-transparent text-secondary'
       }`}
     >
-      <p>회장 박시형 (asdf@naver.com) / 부회장 손봉국 (qwer@gmail.com)</p>
-      <br />
       <h2 className="text-sm font-bold">
         AID (AI Developers) in PNU @ 2022 ALL RIGHTS RESERVED
       </h2>
@@ -30,6 +29,21 @@ function Bottom() {
         Reproduction in whole or part without written permission is strictly
         prohibited.
       </p>
+      <br />
+      <div className="flex items-center gap-x-2">
+        <MdEmail className="text-2xl" />
+        <p className="text-xs">
+          회장 박시형 (bshlab671@naver.com) | 부회장 손봉국
+          (sonbongguk5@gmail.com)
+        </p>
+      </div>
+      <div className="flex items-center gap-x-2">
+        <MdMap className="text-2xl" />
+        <p className="text-xs">
+          부산광역시 금정구 부산대학로63번길 2(장전동), 부산대학교
+          제6공학관(컴퓨터공학관)
+        </p>
+      </div>
     </footer>
   );
 }

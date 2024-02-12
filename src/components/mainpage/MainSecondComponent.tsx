@@ -10,10 +10,10 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
 
   return (
     <>
-      <section className="flex items-center justify-center w-full h-screen font-bold text-center bg-white">
+      <section className="flex items-center justify-center w-full h-screen overflow-hidden font-bold text-center bg-white">
         <motion.div
           animate={{
-            scale: activeSection === index1 ? 1.5 : 1,
+            scale: activeSection === index1 ? 1.3 : 1,
             opacity: activeSection === index1 ? 1 : 0,
           }}
           className="flex flex-col items-center justify-center w-full gap-12 scroll-section"
@@ -27,7 +27,7 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
       <section className="flex items-center justify-center w-full h-screen bg-white">
         <motion.div
           animate={{
-            scale: activeSection === index2 ? 1.5 : 1,
+            scale: activeSection === index2 ? 1.3 : 1,
             opacity: activeSection === index2 ? 1 : 0,
           }}
           className="scroll-section"
