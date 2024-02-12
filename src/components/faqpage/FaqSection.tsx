@@ -8,6 +8,8 @@ import FaqDetailSection from '@component/faqpage/FaqDetailSection';
 import FaqListSection from '@component/faqpage/FaqListSection';
 import FaqSidebar from '@component/faqpage/FaqSidebar';
 import { getCategoryList } from '@api/faq';
+import Skeleton from 'react-loading-skeleton';
+import { isArray } from '@util/util';
 
 export default function FaqSection() {
   const divRef = useRef<HTMLDivElement>(null);
@@ -38,13 +40,10 @@ export default function FaqSection() {
     queryFn: getCategoryList,
     staleTime: 1000 * 60 * 10,
   });
-  if (!faqCategoryList || !Array.isArray(faqCategoryList)) {
-    return <p>준비 중...</p>;
-  }
 
   const searchResults: FaqContentItem[] = [];
   // console.log(faqCategoryList);
-  if (faqCategoryList) {
+  if (isArray(faqCategoryList)) {
     faqCategoryList.forEach((category) => {
       category.contentList.forEach((content) => {
         if (
@@ -69,7 +68,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-y-2 max-w-[1000px]">
+    <section className="flex flex-col items-center justify-center gap-y-2 min-w-[1000px]">
       <h1 className="w-full mt-10 mb-10 text-4xl font-bold text-center">FAQ</h1>
       <hr className="w-20 h-1 mb-20 bg-black" />
       <div
@@ -112,23 +111,47 @@ export default function FaqSection() {
           </ul>
         )}
       </div>
-      {faqCategoryList[currentCategoryId] && (
-        <div className="relative flex w-full" id="faq-body">
-          <FaqSidebar categoryList={faqCategoryList} onClick={handleCategory} />
-          {contentId ? (
-            <FaqDetailSection
-              faqContent={
-                faqCategoryList[currentCategoryId].contentList.find(
-                  (content) => content.contentId === Number(contentId)
-                )!
-              }
+      {isArray(faqCategoryList) ? (
+        faqCategoryList[currentCategoryId] && (
+          <div className="relative flex w-full" id="faq-body">
+            <FaqSidebar
+              categoryList={faqCategoryList}
+              onClick={handleCategory}
             />
-          ) : (
-            <FaqListSection
-              contentList={faqCategoryList[currentCategoryId].contentList}
-              handleFaqButtonClick={handleFaqButton}
-            />
-          )}
+            {contentId ? (
+              <FaqDetailSection
+                faqContent={
+                  faqCategoryList[currentCategoryId].contentList.find(
+                    (content) => content.contentId === Number(contentId)
+                  )!
+                }
+              />
+            ) : (
+              <FaqListSection
+                contentList={faqCategoryList[currentCategoryId].contentList}
+                handleFaqButtonClick={handleFaqButton}
+              />
+            )}
+          </div>
+        )
+      ) : (
+        <div className="relative flex w-full h-full gap-x-4" id="faq-body">
+          <div className="left-0 flex flex-col h-full w-fit gap-y-2">
+            <Skeleton height={50} width={200} />
+            <Skeleton height={50} width={200} />
+            <Skeleton height={50} width={200} />
+            <Skeleton height={50} width={200} />
+            <Skeleton height={50} width={200} />
+          </div>
+          <div className="right-0 flex flex-col w-full h-full gap-y-1">
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+            <Skeleton height={36} />
+          </div>
         </div>
       )}
     </section>
