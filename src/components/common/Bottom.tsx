@@ -15,12 +15,14 @@ function Bottom() {
 
   return (
     <footer
-      className={`flex flex-col w-full h-fit py-16 justify-center items-center m-auto ${
+      className={`flex flex-col w-full h-fit py-8 justify-center items-center m-auto ${
         darkMode
           ? 'bg-darkdarkgray text-tsecondary'
           : 'bg-transparent text-secondary'
       }`}
     >
+      <p>회장 박시형 (asdf@naver.com) / 부회장 손봉국 (qwer@gmail.com)</p>
+      <br />
       <h2 className="text-sm font-bold">
         AID (AI Developers) in PNU @ 2022 ALL RIGHTS RESERVED
       </h2>
