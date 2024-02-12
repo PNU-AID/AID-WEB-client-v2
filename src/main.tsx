@@ -1,35 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import { RouterProvider } from 'react-router-dom';
+import './index.css';
 import { routers } from './router';
-
-/**
- * 개발 모드(DEV)일 때만, api 모킹 처리 로직을 킨다.
- * msw: api 모킹을 위한 라이브러리
- * worker: 클라이언트에서 요청하는 api를 네트워크단에서 가로채는 Service Worker를 등록하는 객체
- */
-async function enableMocking() {
-  // 백엔드에 직접 api 요청을 날리고 싶다면, 아래 주석을 해제하라.
-  // return;
-  if (import.meta.env.PROD) {
-    return;
-  }
-
-  const { worker } = await import('./mocks/browser');
-  // `worker.start()` returns a Promise that resolves
-  // once the Service Worker is up and ready to intercept requests.
-  return worker.start({
-    serviceWorker: {
-      url: '/homepage/mockServiceWorker.js',
-    },
-  });
-}
+import { enableMocking } from '@util/mock';
 
 enableMocking().then(() => {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <RouterProvider router={routers} />
-    </React.StrictMode>
-  );
+  const rootElement = document.getElementById('root');
+  if (!rootElement) {
+    throw new Error('No root element found');
+  }
+
+  // React 18의 createRoot와 hydrateRoot 사용
+  if (rootElement.hasChildNodes()) {
+    // 사전 렌더링된 컨텐츠가 있는 경우 hydrateRoot를 사용
+    ReactDOM.hydrateRoot(
+      rootElement,
+      <React.StrictMode>
+        <RouterProvider router={routers} />
+      </React.StrictMode>
+    );
+  } else {
+    // 클라이언트 사이드 렌더링을 위해 createRoot 사용
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <RouterProvider router={routers} />
+      </React.StrictMode>
+    );
+  }
 });
