@@ -1,5 +1,5 @@
 import { ProjectItem, StudyItem } from '../types/study';
-import studyImg from '../assets/pixel-cells-3947912_1280.png';
+import studyImg from '../assets/study.png';
 import projectImg from '../assets/project.png';
 
 export const StudyItemList: StudyItem[] = [
