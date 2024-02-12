@@ -6,13 +6,25 @@ export interface StudyItem {
   status: string;
   studyName: string;
   studyDescription: string;
+  studyLink: string;
   imgUrl: string;
   // 추가
-  category: string;
   date: string;
   number: string;
   target: string;
-  leader: string;
+}
+
+export interface ProjectItem {
+  id: number;
+  status: string;
+  projectName: string;
+  projectDescription: string;
+  projectLink: string;
+  imgUrl: string;
+  // 추가
+  date: string;
+  number: string;
+  target: string;
 }
 
 export interface OptionProps {
@@ -30,5 +42,7 @@ export interface SelectProps {
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedStudy: StudyItem | null;
+  selectedItem: CombinedItem | null;
 }
+
+type CombinedItem = StudyItem | ProjectItem;
