@@ -35,13 +35,15 @@ export default function FaqSection() {
 
   const { data: faqCategoryList } = useQuery<FaqCategoryItem[]>({
     queryKey: 'faqCategoryList',
-    queryFn: () => getCategoryList(),
+    queryFn: getCategoryList,
+    staleTime: 1000 * 60 * 10,
   });
-  if (!faqCategoryList) {
-    return <p>Loading...</p>;
+  if (!faqCategoryList || !Array.isArray(faqCategoryList)) {
+    return <p>준비 중...</p>;
   }
 
   const searchResults: FaqContentItem[] = [];
+  // console.log(faqCategoryList);
   if (faqCategoryList) {
     faqCategoryList.forEach((category) => {
       category.contentList.forEach((content) => {
