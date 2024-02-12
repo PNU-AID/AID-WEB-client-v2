@@ -103,5 +103,5 @@ const router = [
 ];
 
 export const routers = createBrowserRouter(router, {
-  basename: `/${import.meta.env.VITE_AID_HOMEPAGE_URL}`,
+  basename: '/',
 });
