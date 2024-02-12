@@ -1,6 +1,6 @@
 import { MdKeyboardDoubleArrowDown } from 'react-icons/md';
 import { colors } from '../common/Color';
-import AidMainBanner from '/public/aid-main-banner.jpg';
+import AidMainBanner from '@asset/aid-main-banner.jpg';
 import { motion } from 'framer-motion';
 
 interface MainFirstComponentProps {
@@ -12,7 +12,11 @@ function MainFirstComponent({ activeSection }: MainFirstComponentProps) {
   return (
     <section className="relative flex items-center justify-center w-full h-screen text-4xl font-bold leading-[100px] text-center text-white ">
       <div className="relative w-full h-[500px] overflow-hidden items-center flex flex-col">
-        <img className="-z-[99999] min-w-screen" src={AidMainBanner} />
+        <img
+          alt="aid-main-banner"
+          className="-z-[99999] min-w-screen"
+          src={AidMainBanner}
+        />
         <motion.div
           animate={{
             scale: activeSection === index0 ? 1.5 : 1,
