@@ -14,7 +14,7 @@ export function NewsSection2({ newsList }: NewsSection2Props) {
       <h2 className="mb-8 text-sm font-bold text-center text-gray-500">
         방금 올라온 아티클
       </h2>
-      <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-12 no-scrollbar">
+      <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-12 noscrollbar">
         {newsList.map((item) => (
           <NewsLargeCard
             key={item.newsId + '-' + item.newsTitle}
