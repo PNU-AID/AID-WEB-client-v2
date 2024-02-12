@@ -1,12 +1,12 @@
 import { MdArrowBack } from 'react-icons/md';
-import { QnaContentItem } from '../../type/qna';
+import { FaqContentItem } from '@type/faq';
 import { useSearchParams } from 'react-router-dom';
 
-interface QnaSectionProps {
-  qnaContent: QnaContentItem;
+interface FaqSectionProps {
+  faqContent: FaqContentItem;
 }
 
-export default function QnaDetailSection({ qnaContent }: QnaSectionProps) {
+export default function FaqDetailSection({ faqContent }: FaqSectionProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryId = searchParams.get('category');
 
@@ -15,7 +15,7 @@ export default function QnaDetailSection({ qnaContent }: QnaSectionProps) {
   };
 
   return (
-    <section className="w-full h-full gap-8 ml-20">
+    <section className="w-[600px] h-[600px] flex flex-col">
       <div className="flex flex-col gap-y-4">
         <div
           className="flex items-center cursor-pointer gap-x-2"
@@ -25,9 +25,9 @@ export default function QnaDetailSection({ qnaContent }: QnaSectionProps) {
           <MdArrowBack color="gray" size={18} />
           <span className="text-gray-500">질문 목록</span>
         </div>
-        <article className="w-full h-full">
-          <h1 className="p-4 text-4xl font-bold">{qnaContent.contentTitle}</h1>
-          <p className="p-4 mt-8 text-lg">{qnaContent.content}</p>
+        <article className="flex flex-col gap-y-8">
+          <h1 className="text-4xl font-bold">{faqContent.contentTitle}</h1>
+          <p className="text-lg">{faqContent.content}</p>
         </article>
       </div>
     </section>

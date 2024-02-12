@@ -6,8 +6,8 @@ export async function getNewsList() {
       method: 'get',
       url: '/homepage/api/news',
     });
-    console.log(res.data);
-    if (res.data.code === 200) {
+    //console.log(res.data);
+    if (res.data.code >= 200 && res.data.code < 300) {
       return res.data.data;
     } else {
       throw new Error('소식 조회에 실패했습니다!');

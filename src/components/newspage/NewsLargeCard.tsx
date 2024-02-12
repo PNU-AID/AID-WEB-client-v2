@@ -1,13 +1,13 @@
-import { NewsItem } from '@type/news';
 import { motion } from 'framer-motion';
+import { NewsItem } from '@type/news';
 
-interface NewsMediumCardProps {
+interface NewsLargeCardProps {
   newsItem: NewsItem;
 }
 
-export function NewsMediumCard({ newsItem }: NewsMediumCardProps) {
+export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
   return (
-    <div className="max-w-[270px] h-full mt-4 cursor-pointer">
+    <div className="min-w-[600px] mt-8 cursor-pointer">
       <motion.div
         className="overflow-hidden rounded-2xl"
         whileHover={{
@@ -15,7 +15,10 @@ export function NewsMediumCard({ newsItem }: NewsMediumCardProps) {
           boxShadow: '0 10px 20px rgba(0,0,0,0.18)',
         }}
       >
-        <div className="w-[270px] h-[270px] bg-gray-400 p-8" id="news-card-img">
+        <div
+          className="w-full min-h-[340px] bg-gray-400 p-8"
+          id="news-card-img"
+        >
           {/** TODO: 이미지 영역 */}
         </div>
         <div className="flex flex-col p-4 bg-gray-300" id="news-card-content">
