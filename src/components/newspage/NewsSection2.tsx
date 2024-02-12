@@ -1,5 +1,7 @@
 import { NewsItem } from '@type/news';
 import { NewsLargeCard } from '@component/newspage/NewsLargeCard';
+import Skeleton from 'react-loading-skeleton';
+import { isArray } from '@util/util';
 
 interface NewsSection2Props {
   newsList: NewsItem[];
@@ -15,12 +17,19 @@ export function NewsSection2({ newsList }: NewsSection2Props) {
         방금 올라온 아티클
       </h2>
       <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-12 noscrollbar">
-        {newsList.map((item) => (
-          <NewsLargeCard
-            key={item.newsId + '-' + item.newsTitle}
-            newsItem={item}
-          />
-        ))}
+        {isArray(newsList) ? (
+          newsList.map((item) => (
+            <NewsLargeCard
+              key={item.newsId + '-' + item.newsTitle}
+              newsItem={item}
+            />
+          ))
+        ) : (
+          <div className="flex flex-col w-4/5 gap-y-4">
+            <Skeleton height={400} />
+            <Skeleton height={400} />
+          </div>
+        )}
       </div>
     </div>
   );
