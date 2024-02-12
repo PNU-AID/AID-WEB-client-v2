@@ -31,7 +31,6 @@ export const routerData: RouteItem[] = [
     label: 'Study',
     withAuth: false,
     element: <StudyPage />,
-    hidden: true,
   },
   {
     path: 'faq',
