@@ -13,7 +13,7 @@ export const StudyItemList: StudyItem[] = [
     studyLink: 'https://www.naver.com/',
     imgUrl: studyImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.13',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -27,7 +27,7 @@ export const StudyItemList: StudyItem[] = [
     studyLink: 'https://www.naver.com/',
     imgUrl: studyImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.02',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -41,7 +41,7 @@ export const StudyItemList: StudyItem[] = [
     studyLink: 'https://www.naver.com/',
     imgUrl: studyImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.03',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -55,7 +55,7 @@ export const StudyItemList: StudyItem[] = [
     studyLink: 'https://www.naver.com/',
     imgUrl: studyImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.03',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -99,7 +99,7 @@ export const ProjectItemList: ProjectItem[] = [
     projectLink: 'https://www.naver.com/',
     imgUrl: projectImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.08',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -112,7 +112,7 @@ export const ProjectItemList: ProjectItem[] = [
     projectLink: 'https://www.naver.com/',
     imgUrl: projectImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.11',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -125,7 +125,7 @@ export const ProjectItemList: ProjectItem[] = [
     projectLink: 'https://www.naver.com/',
     imgUrl: projectImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.02',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },
@@ -138,7 +138,7 @@ export const ProjectItemList: ProjectItem[] = [
     projectLink: 'https://www.naver.com/',
     imgUrl: projectImg,
     // 추가
-    date: '2024.01.01',
+    date: '2024.01.05',
     number: '10',
     target: '파이썬에 능숙하신 분~~~~',
   },

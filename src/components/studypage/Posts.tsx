@@ -7,7 +7,7 @@ import Modal from './Modal';
 
 type CombinedItem = StudyItem | ProjectItem;
 
-function Posts() {
+export default function Posts() {
   const [items, setItems] = useState<CombinedItem[]>([
     ...StudyItemList,
     ...ProjectItemList,
@@ -98,6 +98,9 @@ function Posts() {
   };
 
   const filteredItems = searchText ? applyFilters(items) : items;
+  const sortedItems = filteredItems.sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
 
   return (
     <>
@@ -134,7 +137,7 @@ function Posts() {
       </section>
       <section>
         <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {filteredItems.map((item, index) => (
+          {sortedItems.map((item, index) => (
             <div
               className="flex flex-col p-4 bg-white border-2 border-gray-300 rounded-2xl hover:shadow-lg hover:cursor-pointer"
               key={index}
@@ -175,5 +178,3 @@ function Posts() {
     </>
   );
 }
-
-export default Posts;
