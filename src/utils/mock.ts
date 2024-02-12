@@ -15,7 +15,7 @@ export async function enableMocking() {
   // once the Service Worker is up and ready to intercept requests.
   return worker.start({
     serviceWorker: {
-      url: '/mockServiceWorker.js',
+      url: '/homepage/mockServiceWorker.js',
     },
   });
 }
