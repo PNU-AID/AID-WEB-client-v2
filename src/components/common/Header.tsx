@@ -60,7 +60,7 @@ function Header() {
         isVisible ? '' : '-translate-y-full',
       ].join(' ')}
     >
-      <div className="flex items-center w-full justify-evenly">
+      <div className="flex items-center justify-around w-full">
         <Link className="relative" to="/">
           <img
             alt="aid-logo"
@@ -80,7 +80,7 @@ function Header() {
             ].join(' ')}
             id="aid-logo"
           >
-            AI Developers
+            AI Developer
           </h3>
         </Link>
         <MenuIconSvg
@@ -98,9 +98,43 @@ function Header() {
               : 'max-h-0 bg-transparent sm:max-h-[300px]',
           ].join(' ')}
         >
-          {headerData
-            .filter((item) => item.path !== 'login')
-            .map((item) => (
+          {headerData.map((item) => {
+            if (item.label === 'Login') {
+              if (authState.isAuthenticated) {
+                return (
+                  <div className="relative">
+                    <button
+                      className="px-4 py-3 rounded-lg hover:bg-gray-100"
+                      onClick={toggleProfile}
+                    >
+                      <span className="text-primary">
+                        {authState.authInfo!.nickname}
+                      </span>
+                      님, 안녕하세요!
+                    </button>
+                    <HeaderProfile
+                      isExpanded={isVisible && isProfileExpanded}
+                    />
+                  </div>
+                );
+              } else {
+                <Link to="/login">
+                  <Button
+                    className={[
+                      location.pathname.slice(1) === 'login' ? 'font-bold' : '',
+                      !isDarkPage(location.pathname)
+                        ? 'text-black'
+                        : lastScrollY > 0 || isExpanded
+                          ? textCss
+                          : 'text-black',
+                    ].join(' ')}
+                    label="Login"
+                    size="large"
+                  />
+                </Link>;
+              }
+            }
+            return (
               <Link key={item.label} to={item.path}>
                 <Button
                   className={[
@@ -115,38 +149,9 @@ function Header() {
                   size="large"
                 />
               </Link>
-            ))}
-          {!authState.isAuthenticated && (
-            <Link to="/login">
-              <Button
-                className={[
-                  location.pathname.slice(1) === 'login' ? 'font-bold' : '',
-                  !isDarkPage(location.pathname)
-                    ? 'text-black'
-                    : lastScrollY > 0 || isExpanded
-                      ? textCss
-                      : 'text-black',
-                ].join(' ')}
-                label="Login"
-                size="large"
-              />
-            </Link>
-          )}
+            );
+          })}
         </nav>
-        {authState.isAuthenticated && (
-          <div className="relative">
-            <button
-              className="px-4 py-3 rounded-lg hover:bg-gray-100"
-              onClick={toggleProfile}
-            >
-              <span className="text-primary">
-                {authState.authInfo!.nickname}
-              </span>
-              님, 안녕하세요!
-            </button>
-            <HeaderProfile isExpanded={isVisible && isProfileExpanded} />
-          </div>
-        )}
       </div>
     </header>
   );
