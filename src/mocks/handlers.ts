@@ -37,9 +37,6 @@ export const handlers = [
     return HttpResponse.json(faqCategoryList);
   }),
   http.get('/api/news', () => {
-    return HttpResponse.json({
-      code: 200,
-      data: NewsItemList,
-    });
+    return HttpResponse.json(NewsItemList);
   }),
 ];
