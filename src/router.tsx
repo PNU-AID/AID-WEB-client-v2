@@ -31,6 +31,7 @@ export const routerData: RouteItem[] = [
     label: 'Study',
     withAuth: false,
     element: <StudyPage />,
+    hidden: true,
   },
   {
     path: 'faq',
@@ -63,6 +64,7 @@ export const routerData: RouteItem[] = [
     label: 'Login',
     withAuth: false,
     element: <LoginPage />,
+    hidden: true,
   },
   {
     path: 'signup',
@@ -103,5 +105,5 @@ const router = [
 ];
 
 export const routers = createBrowserRouter(router, {
-  basename: `/${import.meta.env.VITE_AID_HOMEPAGE_URL}`,
+  basename: '/',
 });

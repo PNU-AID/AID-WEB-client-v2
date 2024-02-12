@@ -33,10 +33,10 @@ export const handlers = [
       ],
     });
   }),
-  http.get('/homepage/api/faq/category', () => {
+  http.get('/api/faq/category', () => {
     return HttpResponse.json(faqCategoryList);
   }),
-  http.get('/homepage/api/news', () => {
+  http.get('/api/news', () => {
     return HttpResponse.json({
       code: 200,
       data: NewsItemList,
