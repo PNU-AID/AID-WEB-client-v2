@@ -7,22 +7,23 @@ interface NewsMediumCardProps {
 
 export function NewsMediumCard({ newsItem }: NewsMediumCardProps) {
   return (
-    <div className="max-w-[270px] h-full mt-4 cursor-pointer">
+    <div className="max-w-[270px] h-fit mt-4 cursor-pointer">
       <motion.div
         className="overflow-hidden rounded-2xl"
         whileHover={{
           y: -10,
-          boxShadow: '0 10px 20px rgba(0,0,0,0.18)',
+          boxShadow: '0 10px 20px blue',
+          transition: { duration: 1 },
         }}
       >
-        <div className="w-[270px] h-[270px] bg-gray-400 p-8" id="news-card-img">
-          {/** TODO: 이미지 영역 */}
+        <div className="w-[270px] h-[270px]" id="news-card-img">
+          <img alt="news thumbnail" src={newsItem.image} />
         </div>
-        <div className="flex flex-col p-4 bg-gray-300" id="news-card-content">
+        <div className="flex flex-col p-4 bg-blue-500" id="news-card-content">
           <p className="text-sm text-white">시리즈</p>
-          <p className="text-lg font-bold text-white">{newsItem.newsTitle}</p>
+          <p className="text-lg font-bold text-white">{newsItem.title}</p>
           <p className="text-lg font-bold text-white text-end">
-            {newsItem.author}
+            {newsItem.create_at}
           </p>
         </div>
       </motion.div>

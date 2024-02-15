@@ -4,7 +4,7 @@ export async function getCategoryList() {
   try {
     const res = await axios({
       method: 'get',
-      url: 'http://localhost:3001/api/faq/category',
+      url: '/api/faq/category',
     });
     // console.log(res.data);
     if (res.status >= 200 && res.status < 300) {
@@ -14,6 +14,6 @@ export async function getCategoryList() {
     }
   } catch (e) {
     console.error(e);
-    return [];
+    return undefined;
   }
 }

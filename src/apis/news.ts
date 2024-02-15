@@ -4,7 +4,7 @@ export async function getNewsList() {
   try {
     const res = await axios({
       method: 'get',
-      url: 'http://localhost:3001/api/news',
+      url: '/api/news',
     });
     // console.log(res.data);
     if (res.status >= 200 && res.status < 300) {
@@ -14,6 +14,6 @@ export async function getNewsList() {
     }
   } catch (e) {
     console.error(e);
-    return [];
+    return undefined;
   }
 }

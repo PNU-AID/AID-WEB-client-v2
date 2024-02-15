@@ -1,10 +1,7 @@
 export interface NewsItem {
-  newsId: number;
-  newsTitle: string;
-  newsContent: string;
-  date: string;
-  author: string;
-  tags: string[];
-  newsImage?: string;
-  hits: number;
+  id: number;
+  title: string;
+  content: string;
+  create_at: string;
+  image?: string;
 }

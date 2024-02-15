@@ -31,7 +31,6 @@ export const routerData: RouteItem[] = [
     label: 'Study',
     withAuth: false,
     element: <StudyPage />,
-    hidden: true,
   },
   {
     path: 'faq',
@@ -44,6 +43,7 @@ export const routerData: RouteItem[] = [
     label: 'Q&A',
     withAuth: false,
     element: <QnaPage />,
+    hidden: true,
   },
   {
     path: 'about',

@@ -14,13 +14,10 @@ export function NewsSection1({ newsList }: NewsSection1Props) {
       id="news-section-1"
     >
       <h2 className="mb-8 text-sm font-bold text-gray-500">오늘의 시리즈</h2>
-      <div className="flex flex-col items-center w-full h-screen overflow-y-auto gap-y-2">
+      <div className="flex flex-col items-center w-full h-screen overflow-y-auto font-mono gap-y-4">
         {isArray(newsList) ? (
           newsList.map((item) => (
-            <NewsMediumCard
-              key={item.newsId + '-' + item.newsTitle}
-              newsItem={item}
-            />
+            <NewsMediumCard key={item.id + '-' + item.title} newsItem={item} />
           ))
         ) : (
           <div className="flex flex-col w-4/5 gap-y-4">
