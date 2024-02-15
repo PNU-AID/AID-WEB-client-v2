@@ -17,7 +17,6 @@ enableMocking().then(() => {
   } else {
     axios.defaults.baseURL = import.meta.env.VITE_API_URL;
   }
-  console.log(axios.defaults.baseURL);
 
   // React 18의 createRoot와 hydrateRoot 사용
   if (rootElement.hasChildNodes()) {

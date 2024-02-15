@@ -12,7 +12,6 @@ function NewsPage() {
     queryFn: getNewsList,
     staleTime: 1000 * 60 * 10,
   });
-  console.log(newsList);
 
   return (
     <div className="w-[100vw] min-h-screen px-[100px] py-[120px] flex justify-evenly">

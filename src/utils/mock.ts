@@ -6,7 +6,13 @@
 export async function enableMocking() {
   // 백엔드에 직접 api 요청을 날리고 싶다면, 아래 주석을 해제하라.
   //return;
-  if (import.meta.env.DEV) {
+  if (
+    !(
+      import.meta.env.DEV &&
+      import.meta.env.VITE_MSW_ON &&
+      import.meta.env.VITE_MSW_ON === 1
+    )
+  ) {
     return;
   }
 
