@@ -44,6 +44,7 @@ export const routerData: RouteItem[] = [
     label: 'Q&A',
     withAuth: false,
     element: <QnaPage />,
+    hidden: true,
   },
   {
     path: 'about',
