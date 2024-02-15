@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import MainFirstComponent from '@component/mainpage/MainFirstComponent';
 import MainSecondComponent from '@component/mainpage/MainSecondComponent';
 import { useScroll } from 'framer-motion';
+import MainThirdComponent from '@component/mainpage/MainThirdComponent';
 
 function MainPage() {
   const [activeSection, setActiveSection] = useState(0);
@@ -34,6 +35,7 @@ function MainPage() {
     <>
       <MainFirstComponent activeSection={activeSection} />
       <MainSecondComponent activeSection={activeSection} />
+      <MainThirdComponent activeSection={activeSection} />
     </>
   );
 }
