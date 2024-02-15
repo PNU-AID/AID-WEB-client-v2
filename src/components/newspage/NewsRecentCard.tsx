@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { NewsItem } from '@type/news';
 
 interface NewsRecentCardProps {
-  recentItem: NewsItem;
+  newsItem: NewsItem;
 }
 
-export function NewsRecentCard({ recentItem }: NewsRecentCardProps) {
+export function NewsRecentCard({ newsItem }: NewsRecentCardProps) {
   return (
     <div className="w-[270px] h-[340px] cursor-pointer mt-4">
       <motion.div
@@ -16,11 +16,11 @@ export function NewsRecentCard({ recentItem }: NewsRecentCardProps) {
           className="w-20 h-20 p-8 m-10 bg-gray-400 rounded-full"
           id="news-card-img"
         >
-          {/** TODO: 이미지 영역 */}
+          <img alt="news thumbnail" src={newsItem.image} />
         </div>
         <div className="flex flex-col w-full p-4 " id="news-card-content">
           <p className="text-sm text-black">시리즈</p>
-          <p className="text-lg font-bold text-black">{recentItem.newsTitle}</p>
+          <p className="text-lg font-bold text-black">{newsItem.title}</p>
         </div>
       </motion.div>
     </div>

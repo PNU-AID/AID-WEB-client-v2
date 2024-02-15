@@ -4,12 +4,20 @@ import { RouterProvider } from 'react-router-dom';
 import './index.css';
 import { routers } from './router';
 import { enableMocking } from '@util/mock';
+import axios from 'axios';
 
 enableMocking().then(() => {
   const rootElement = document.getElementById('root');
   if (!rootElement) {
     throw new Error('No root element found');
   }
+
+  if (!import.meta.env.DEV) {
+    axios.defaults.baseURL = 'http://localhost:8000';
+  } else {
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+  }
+  console.log(axios.defaults.baseURL);
 
   // React 18의 createRoot와 hydrateRoot 사용
   if (rootElement.hasChildNodes()) {

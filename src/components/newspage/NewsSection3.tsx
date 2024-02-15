@@ -17,10 +17,7 @@ export function NewsSection3({ newsList }: NewsSection3Props) {
       <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-4">
         {isArray(newsList) ? (
           newsList.map((item) => (
-            <NewsRecentCard
-              key={item.newsId + '-' + item.newsTitle}
-              recentItem={item}
-            />
+            <NewsRecentCard key={item.id + '-' + item.title} newsItem={item} />
           ))
         ) : (
           <div className="flex flex-col w-4/5 gap-y-4">

@@ -4,7 +4,7 @@ export async function getNewsList() {
   try {
     const res = await axios({
       method: 'get',
-      url: 'http://localhost:8000/api/news',
+      url: '/api/news',
     });
     // console.log(res.data);
     if (res.status >= 200 && res.status < 300) {

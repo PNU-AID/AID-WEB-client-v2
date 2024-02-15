@@ -8,7 +8,7 @@ export async function postSignup(
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:8000/api/register',
+      url: '/api/register',
       data: {
         nick_name: nickname,
         email,
@@ -31,7 +31,7 @@ export async function postLogin(email: string, password: string) {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:8000/api/login',
+      url: '/api/login',
       data: {
         email,
         password,
@@ -53,7 +53,7 @@ export async function postLogout() {
   try {
     const res = await axios({
       method: 'post',
-      url: 'http://127.0.0.1:8000/api/logout',
+      url: '/api/logout',
       withCredentials: true,
     });
     console.log(res);

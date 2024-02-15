@@ -19,13 +19,13 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
           className="w-full min-h-[340px] bg-gray-400 p-8"
           id="news-card-img"
         >
-          {/** TODO: 이미지 영역 */}
+          <img alt="news thumbnail" src={newsItem.image} />
         </div>
         <div className="flex flex-col p-4 bg-gray-300" id="news-card-content">
           <p className="text-sm text-white">시리즈</p>
-          <p className="text-lg font-bold text-white">{newsItem.newsTitle}</p>
+          <p className="text-lg font-bold text-white">{newsItem.title}</p>
           <p className="text-lg font-bold text-white text-end">
-            {newsItem.author}
+            {newsItem.content}
           </p>
         </div>
       </motion.div>

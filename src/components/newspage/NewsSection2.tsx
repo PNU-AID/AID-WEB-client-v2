@@ -19,10 +19,7 @@ export function NewsSection2({ newsList }: NewsSection2Props) {
       <div className="flex flex-col items-center w-full h-screen overflow-y-scroll gap-y-12 noscrollbar">
         {isArray(newsList) ? (
           newsList.map((item) => (
-            <NewsLargeCard
-              key={item.newsId + '-' + item.newsTitle}
-              newsItem={item}
-            />
+            <NewsLargeCard key={item.id + '-' + item.title} newsItem={item} />
           ))
         ) : (
           <div className="flex flex-col w-4/5 gap-y-4">
