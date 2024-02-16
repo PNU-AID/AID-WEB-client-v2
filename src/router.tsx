@@ -81,18 +81,20 @@ const router = [
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      ...routerData.map((item) => {
-        if (item.path === '') {
+      ...routerData
+        .filter((item) => !item.hidden)
+        .map((item) => {
+          if (item.path === '') {
+            return {
+              index: true,
+              element: <MainPage />,
+            };
+          }
           return {
-            index: true,
-            element: <MainPage />,
+            path: item.path,
+            element: item.element,
           };
-        }
-        return {
-          path: item.path,
-          element: item.element,
-        };
-      }),
+        }),
     ],
   },
   {
