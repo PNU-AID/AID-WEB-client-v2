@@ -60,7 +60,7 @@ function Header() {
         isVisible ? '' : '-translate-y-full',
       ].join(' ')}
     >
-      <div className="flex items-center justify-around w-full">
+      <div className="flex items-center justify-around w-full ">
         <Link className="relative" to="/">
           <img
             alt="aid-logo"
@@ -90,7 +90,7 @@ function Header() {
         />
         <nav
           className={[
-            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl overflow-hidden',
+            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl overflow-hidden font-sans',
             'sm:justify-end sm:w-fit sm:gap-0 sm:pt-2 sm:flex-row sm:shadow-none sm:static sm:mx-8 sm:my-2',
             'transition-all duration-300',
             isExpanded
@@ -151,6 +151,19 @@ function Header() {
               </Link>
             );
           })}
+          <a href={import.meta.env.VITE_AID_NOTION_NEWS_URL} target="_blank">
+            <Button
+              className={[
+                !isDarkPage(location.pathname)
+                  ? 'text-black'
+                  : lastScrollY > 0 || isExpanded
+                    ? textCss
+                    : 'text-black',
+              ].join(' ')}
+              label="지원하기"
+              size="large"
+            />
+          </a>
         </nav>
       </div>
     </header>

@@ -12,6 +12,9 @@ export default {
         tsecondary: '#B0B8C1',
         tthird: '#8B95A1',
       },
+      fontFamily: {
+        pretendard: ['Pretendard'],
+      },
     },
   },
   plugins: [],

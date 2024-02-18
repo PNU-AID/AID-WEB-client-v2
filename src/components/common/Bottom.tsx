@@ -31,7 +31,7 @@ function Bottom() {
           prohibited.
         </p>
       </div>
-      <div className="pl-32 border-l">
+      <div className="pl-32 font-sans border-l">
         <div className="flex items-center gap-x-2">
           <MdPhone className="text-2xl" />
           <p className="text-xs">010-9425-1908</p>
