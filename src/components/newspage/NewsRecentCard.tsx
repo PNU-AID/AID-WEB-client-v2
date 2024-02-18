@@ -12,7 +12,7 @@ export function NewsRecentCard({ newsItem }: NewsRecentCardProps) {
         className="overflow-hidden border rounded-2xl"
         whileHover={{
           y: -10,
-          boxShadow: '0 10px 20px rgba(0, 176, 0, 1)',
+          boxShadow: '0 10px 20px 4px rgba(0, 0, 0, 0.1)',
           transition: { duration: 1 },
         }}
       >
