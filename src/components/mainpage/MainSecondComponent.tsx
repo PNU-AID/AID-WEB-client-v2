@@ -25,7 +25,7 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
         transition={{ type: 'spring', stiffness: 300 }}
       >
         <>
-          <span className="text-7xl">AI Developer</span>
+          <span className="text-4xl sm:text-7xl">AI Developer</span>
           <div className="w-1/3 h-1 bg-secondary" />
           {!recruitInfo?.title.includes('아닙니다') && (
             <h2 className="text-xl text-center">
@@ -33,7 +33,7 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
             </h2>
           )}
           {!recruitInfo?.title.includes('아닙니다') ? (
-            <div className="flex flex-col items-center w-1/3 text-lg">
+            <div className="flex flex-col items-center w-2/3 text-sm sm:w-1/3 sm:text-lg font-pretendard">
               <div className="flex w-full">
                 <label>모집인원: </label>
                 <span className="ml-auto">
@@ -70,7 +70,7 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
               </div>
             </div>
           ) : (
-            <span className="text-4xl">모집 기간이 아닙니다!</span>
+            <span className="text-2xl sm:text-4xl">모집 기간이 아닙니다!</span>
           )}
         </>
       </motion.div>
