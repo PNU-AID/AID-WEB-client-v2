@@ -68,8 +68,8 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-y-2 min-w-[1000px]">
-      <h1 className="w-full mt-10 mb-10 text-4xl font-bold text-center">FAQ</h1>
+    <section className="flex flex-col items-center justify-center gap-y-2 min-w-[300px] sm:min-w-[1000px]">
+      <h1 className="w-full my-10 text-4xl font-bold text-center">FAQ</h1>
       <hr className="w-20 h-1 mb-20 bg-black" />
       <div
         className="relative w-full m-4 border-b border-gray-400 h-fit focus:border-primary"
@@ -135,24 +135,30 @@ export default function FaqSection() {
           </div>
         )
       ) : (
-        <div className="relative flex w-full h-full gap-x-4" id="faq-body">
-          <div className="left-0 flex flex-col h-full w-fit gap-y-2">
-            <Skeleton height={50} width={200} />
-            <Skeleton height={50} width={200} />
-            <Skeleton height={50} width={200} />
-            <Skeleton height={50} width={200} />
-            <Skeleton height={50} width={200} />
+        <>
+          <div
+            className="relative hidden w-full h-full gap-x-4 sm:flex"
+            id="faq-body"
+          >
+            <div className="left-0 flex flex-col h-full w-fit gap-y-2">
+              <Skeleton height={50} />
+              <Skeleton height={50} width={200} />
+              <Skeleton height={50} width={200} />
+              <Skeleton height={50} width={200} />
+              <Skeleton height={50} width={200} />
+            </div>
+            <div className="right-0 flex flex-col w-full h-full gap-y-1">
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+              <Skeleton height={36} />
+            </div>
           </div>
-          <div className="right-0 flex flex-col w-full h-full gap-y-1">
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-            <Skeleton height={36} />
-          </div>
-        </div>
+          <p className="block mt-12 font-sans sm:hidden">Loading...</p>
+        </>
       )}
     </section>
   );
