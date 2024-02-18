@@ -12,7 +12,7 @@ enableMocking().then(() => {
     throw new Error('No root element found');
   }
 
-  if (import.meta.env.DEV) {
+  if (import.meta.env.VITE_NODE_ENV !== 'production') {
     axios.defaults.baseURL = 'http://localhost:8000';
   } else {
     axios.defaults.baseURL = import.meta.env.VITE_API_URL;
