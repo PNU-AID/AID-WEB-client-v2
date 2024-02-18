@@ -35,14 +35,14 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+      - name: Create .env file
+        run: jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< "$SECRETS_CONTEXT" > .env
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
       - name: Install dependencies
         run: yarn install
       - name: Build
         run: yarn build
-        env:
-          VITE_API_URL: ${{vars.VITE_API_URL}}
-          VITE_MSW_ON: ${{vars.VITE_MSW_ON}}
-          VITE_NODE_ENV: ${{vars.VITE_NODE_ENV}}
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
