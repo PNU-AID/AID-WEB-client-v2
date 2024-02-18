@@ -21,19 +21,19 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
           scale: activeSection === index ? 1.3 : 1,
           opacity: activeSection === index ? 1 : 0,
         }}
-        className="flex flex-col items-center justify-center w-full gap-12 scroll-section"
+        className="flex flex-col items-center justify-center w-full gap-10 scroll-section"
         transition={{ type: 'spring', stiffness: 300 }}
       >
         <>
           <span className="text-7xl">AI Developer</span>
           <div className="w-1/3 h-1 bg-secondary" />
-          {recruitInfo ? (
+          {!recruitInfo?.title.includes('아닙니다') && (
+            <h2 className="text-xl text-center">
+              {recruitInfo?.title || '미정'}
+            </h2>
+          )}
+          {!recruitInfo?.title.includes('아닙니다') ? (
             <div className="flex flex-col items-center w-1/3 text-lg">
-              <div className="flex w-full text-center">
-                <span className="text-center">
-                  {recruitInfo?.recruitment_schedule || '미정'}
-                </span>
-              </div>
               <div className="flex w-full">
                 <label>모집인원: </label>
                 <span className="ml-auto">
