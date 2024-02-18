@@ -7,12 +7,11 @@ interface NewsLargeCardProps {
 
 export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
   return (
-    <div className="max-w-[530px] mt-8 cursor-pointer h-fit">
+    <div className="max-w-[500px] mt-8 cursor-pointer h-fit border rounded-2xl">
       <motion.div
         className="rounded-[5%] flex flex-col"
         whileHover={{
           y: -10,
-          boxShadow: '0 10px 20px 4px rgba(0, 0, 0, 0.1)',
           transition: { duration: 1 },
         }}
       >

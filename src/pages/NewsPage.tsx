@@ -14,7 +14,7 @@ function NewsPage() {
   });
 
   return (
-    <div className="w-[100vw] min-h-screen px-[100px] py-[120px] flex justify-evenly">
+    <div className="w-[100%] min-h-screen sm:px-[100px] py-[120px] flex flex-col sm:flex-row justify-evenly gap-y-12 sm:gap-x-8">
       {newsList && (
         <>
           <NewsSection1 newsList={newsList} />
