@@ -90,9 +90,9 @@ function Header() {
         />
         <nav
           className={[
-            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl overflow-hidden font-sans',
-            'sm:justify-end sm:w-fit sm:gap-0 sm:pt-2 sm:flex-row sm:shadow-none sm:static sm:mx-8 sm:my-2',
-            'transition-all duration-300',
+            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl overflow-hidden font-sans text-center rounded-xl pb-2',
+            'sm:justify-end sm:w-fit sm:gap-0 sm:pt-2 sm:flex-row sm:shadow-none sm:static sm:mx-8 sm:my-2 sm:text-left sm:pb-0 sm:rounded-none',
+            'transition-all duration-500',
             isExpanded
               ? 'max-h-[500px] bg-white'
               : 'max-h-0 bg-transparent sm:max-h-[300px]',

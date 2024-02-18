@@ -31,19 +31,19 @@ function Bottom() {
           prohibited.
         </p>
       </div>
-      <div className="pb-8 font-sans text-xs border-b sm:pb-0 sm:text-sm sm:mb-0 sm:border-l sm:pl-32 sm:border-b-0">
+      <div className="flex flex-col pb-8 font-sans text-xs border-b gap-y-2 sm:pb-0 sm:text-sm sm:mb-0 sm:border-l sm:pl-32 sm:border-b-0">
         <div className="flex items-center gap-x-2">
           <MdPhone className="text-2xl" />
           <p>010-9425-1908</p>
         </div>
-        <div className="flex items-center gap-x-2">
+        <div className="flex gap-x-2">
           <MdEmail className="text-2xl" />
           <p>
             회장 박시형 (bshlab671@naver.com) | 부회장 손봉국
             (sonbongguk5@gmail.com)
           </p>
         </div>
-        <div className="flex items-center gap-x-2">
+        <div className="flex gap-x-2">
           <MdMap className="text-2xl" />
           <p>
             부산광역시 금정구 부산대학로63번길 2(장전동), 부산대학교
