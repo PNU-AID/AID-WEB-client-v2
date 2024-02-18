@@ -98,6 +98,19 @@ function Header() {
               : 'max-h-0 bg-transparent sm:max-h-[300px]',
           ].join(' ')}
         >
+          <a href={import.meta.env.VITE_AID_NOTION_NEWS_URL} target="_blank">
+            <Button
+              className={[
+                !isDarkPage(location.pathname)
+                  ? 'text-black'
+                  : lastScrollY > 0 || isExpanded
+                    ? textCss
+                    : 'text-black',
+              ].join(' ')}
+              label="About Us"
+              size="large"
+            />
+          </a>
           {headerData.map((item) => {
             if (item.label === 'Login') {
               if (authState.isAuthenticated) {
@@ -151,19 +164,6 @@ function Header() {
               </Link>
             );
           })}
-          <a href={import.meta.env.VITE_AID_NOTION_NEWS_URL} target="_blank">
-            <Button
-              className={[
-                !isDarkPage(location.pathname)
-                  ? 'text-black'
-                  : lastScrollY > 0 || isExpanded
-                    ? textCss
-                    : 'text-black',
-              ].join(' ')}
-              label="지원하기"
-              size="large"
-            />
-          </a>
         </nav>
       </div>
     </header>
