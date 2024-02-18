@@ -107,5 +107,5 @@ const router = [
 ];
 
 export const routers = createBrowserRouter(router, {
-  basename: '/',
+  basename: '/homepage/',
 });
