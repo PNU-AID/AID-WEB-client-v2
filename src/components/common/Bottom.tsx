@@ -16,13 +16,13 @@ function Bottom() {
 
   return (
     <footer
-      className={`flex relative w-full h-fit py-8 justify-center items-center m-auto ${
+      className={`flex flex-col-reverse sm:flex-row relative w-full h-fit py-8 px-2 justify-center items-center m-auto ${
         darkMode
           ? 'bg-darkdarkgray text-tsecondary'
           : 'bg-transparent text-secondary'
       }`}
     >
-      <div className="flex flex-col pr-32 text-center">
+      <div className="flex flex-col pt-8 text-center sm:pr-32 sm:pt-0">
         <h2 className="text-sm font-bold">
           AID (AI Developers) in PNU @ 2022 ALL RIGHTS RESERVED
         </h2>
@@ -31,21 +31,21 @@ function Bottom() {
           prohibited.
         </p>
       </div>
-      <div className="pl-32 font-sans border-l">
+      <div className="pb-8 font-sans text-xs border-b sm:pb-0 sm:text-sm sm:mb-0 sm:border-l sm:pl-32 sm:border-b-0">
         <div className="flex items-center gap-x-2">
           <MdPhone className="text-2xl" />
-          <p className="text-xs">010-9425-1908</p>
+          <p>010-9425-1908</p>
         </div>
         <div className="flex items-center gap-x-2">
           <MdEmail className="text-2xl" />
-          <p className="text-xs">
+          <p>
             회장 박시형 (bshlab671@naver.com) | 부회장 손봉국
             (sonbongguk5@gmail.com)
           </p>
         </div>
         <div className="flex items-center gap-x-2">
           <MdMap className="text-2xl" />
-          <p className="text-xs">
+          <p>
             부산광역시 금정구 부산대학로63번길 2(장전동), 부산대학교
             제6공학관(컴퓨터공학관)
           </p>
