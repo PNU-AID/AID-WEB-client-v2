@@ -20,7 +20,11 @@ export function NewsRecentCard({ newsItem }: NewsRecentCardProps) {
           className="w-20 h-20 m-10 bg-gray-400 rounded-full overflow-clip"
           id="news-card-img"
         >
-          <img alt="news thumbnail" src={newsItem.image} />
+          <img
+            alt="news thumbnail"
+            className="object-cover object-center"
+            src={newsItem.image}
+          />
         </div>
         <div className="flex flex-col w-full p-4" id="news-card-content">
           <p className="text-sm text-black">시리즈</p>

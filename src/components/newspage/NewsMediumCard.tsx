@@ -16,8 +16,15 @@ export function NewsMediumCard({ newsItem }: NewsMediumCardProps) {
           transition: { duration: 1 },
         }}
       >
-        <div className="w-[270px] h-[270px]" id="news-card-img">
-          <img alt="news thumbnail" src={newsItem.image} />
+        <div
+          className="w-[270px] h-[270px] relative overflow-hidden"
+          id="news-card-img"
+        >
+          <img
+            alt="news thumbnail"
+            className="object-none object-center"
+            src={newsItem.image}
+          />
         </div>
         <div className="flex flex-col p-4 " id="news-card-content">
           <p className="text-sm ">시리즈</p>

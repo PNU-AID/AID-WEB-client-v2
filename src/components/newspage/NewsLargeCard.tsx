@@ -17,10 +17,14 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
         }}
       >
         <div
-          className="max-w-[560px] max-h-[340px] overflow-clip"
+          className="max-w-[560px] max-h-[340px] relative overflow-hidden"
           id="news-card-img"
         >
-          <img alt="news thumbnail" src={newsItem.image} />
+          <img
+            alt="news thumbnail"
+            className="object-none object-center w-full h-full"
+            src={newsItem.image}
+          />
         </div>
         <div
           className="flex flex-col px-8 py-4 bg-transparent text-secondary font-pretendard"
