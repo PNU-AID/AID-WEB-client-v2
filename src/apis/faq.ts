@@ -1,12 +1,12 @@
+import { FaqContentItem } from '@type/faq';
 import axios from 'axios';
 
-export async function getCategoryList() {
+export async function getCategoryList(): Promise<FaqContentItem[] | undefined> {
   try {
     const res = await axios({
       method: 'get',
-      url: '/api/faq/category',
+      url: '/api/faq',
     });
-    // console.log(res.data);
     if (res.status >= 200 && res.status < 300) {
       return res.data;
     } else {

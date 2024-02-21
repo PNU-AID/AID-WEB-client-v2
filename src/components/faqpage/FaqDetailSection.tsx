@@ -26,7 +26,7 @@ export default function FaqDetailSection({ faqContent }: FaqSectionProps) {
           <span className="text-gray-500">질문 목록</span>
         </div>
         <article className="flex flex-col gap-y-8">
-          <h1 className="text-4xl font-bold">{faqContent.contentTitle}</h1>
+          <h1 className="text-4xl font-bold">{faqContent.title}</h1>
           <p className="text-lg">{faqContent.content}</p>
         </article>
       </div>
