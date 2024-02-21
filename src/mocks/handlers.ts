@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw';
-import { faqCategoryList } from '@data/faq-data';
+import { FaqContentList } from '@data/faq-data';
 import { NewsItemList } from '@data/news-data.';
 
 export const handlers = [
@@ -34,7 +34,7 @@ export const handlers = [
     });
   }),
   http.get('/api/faq/category', () => {
-    return HttpResponse.json(faqCategoryList);
+    return HttpResponse.json(FaqContentList);
   }),
   http.get('/api/news', () => {
     return HttpResponse.json(NewsItemList);
