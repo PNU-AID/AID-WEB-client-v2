@@ -12,7 +12,7 @@ function MainFirstComponent({ activeSection }: MainFirstComponentProps) {
   return (
     <section className="relative flex items-center justify-center w-full h-screen text-4xl font-bold leading-[100px] text-center text-white">
       <div className="relative flex flex-col items-center justify-center w-full h-full overflow-hidden">
-        <div className="">
+        <div className="mt-[60px]">
           <img
             alt="aid-main-banner"
             className="-z-[99999] w-full"

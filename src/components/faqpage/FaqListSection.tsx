@@ -17,9 +17,9 @@ export default function FaqListSection({
           return (
             <FaqButton
               isContent={true}
-              key={item.contentId}
-              label={'Q.  ' + item.contentTitle}
-              onClick={() => handleFaqButtonClick(item.contentId)}
+              key={item.id}
+              label={'Q.  ' + item.title}
+              onClick={() => handleFaqButtonClick(item.id)}
             />
           );
         })}
