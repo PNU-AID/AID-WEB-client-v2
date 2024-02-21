@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { isDarkPage } from '@util/location';
 import { MdEmail, MdMap, MdPhone } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
 
 function Bottom() {
   const [darkMode, setDarkMode] = useState(true);
   const location = useLocation();
+  const { t } = useTranslation();
   useEffect(() => {
     if (isDarkPage(location.pathname)) {
       setDarkMode(true);
@@ -39,16 +41,13 @@ function Bottom() {
         <div className="flex gap-x-2">
           <MdEmail className="text-2xl" />
           <p>
-            회장 박시형 (bshlab671@naver.com) | 부회장 손봉국
+            {t('first_contact')} (bshlab671@naver.com) | {t('second_contact')}{' '}
             (sonbongguk5@gmail.com)
           </p>
         </div>
         <div className="flex gap-x-2">
           <MdMap className="text-2xl" />
-          <p>
-            부산광역시 금정구 부산대학로63번길 2(장전동), 부산대학교
-            제6공학관(컴퓨터공학관)
-          </p>
+          <p>{t('location')}</p>
         </div>
       </div>
     </footer>

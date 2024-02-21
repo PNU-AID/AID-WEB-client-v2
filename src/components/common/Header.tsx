@@ -8,6 +8,7 @@ import MenuIconSvg from '@asset/menu-icon.svg?react';
 import AidLogoImg from '@asset/aid-logo.png';
 import { useAuthCtx } from '@store/AuthContext';
 import HeaderProfile from './HeaderProfile';
+import LanguageToggle from '../../languages/LanguageToggle';
 
 function Header() {
   const { authState } = useAuthCtx();
@@ -61,28 +62,31 @@ function Header() {
       ].join(' ')}
     >
       <div className="flex items-center justify-around w-full ">
-        <Link className="relative" to="/">
-          <img
-            alt="aid-logo"
-            className="absolute top-0 bottom-0 m-auto"
-            src={AidLogoImg}
-            width={20}
-          />
-          <h3
-            className={[
-              'flex justify-start ml-8 text-2xl font-bold',
-              'transition-all duration-300',
-              !isDarkPage(location.pathname)
-                ? 'text-black'
-                : lastScrollY > 0 || isExpanded
-                  ? textCss
-                  : 'text-black',
-            ].join(' ')}
-            id="aid-logo"
-          >
-            AI Developer
-          </h3>
-        </Link>
+        <div className="flex items-center">
+          <Link className="relative m-2" to="/">
+            <img
+              alt="aid-logo"
+              className="absolute top-0 bottom-0 m-auto"
+              src={AidLogoImg}
+              width={20}
+            />
+            <h3
+              className={[
+                'flex justify-start ml-8 text-2xl font-bold',
+                'transition-all duration-300',
+                !isDarkPage(location.pathname)
+                  ? 'text-black'
+                  : lastScrollY > 0 || isExpanded
+                    ? textCss
+                    : 'text-black',
+              ].join(' ')}
+              id="aid-logo"
+            >
+              AI Developer
+            </h3>
+          </Link>
+          <LanguageToggle />
+        </div>
         <MenuIconSvg
           className="sm:hidden"
           onClick={() => setIsExpanded(!isExpanded)}
