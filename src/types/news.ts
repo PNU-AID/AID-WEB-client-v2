@@ -2,6 +2,6 @@ export interface NewsItem {
   id: number;
   title: string;
   content: string;
-  create_at: string;
+  created_at: string;
   image?: string;
 }

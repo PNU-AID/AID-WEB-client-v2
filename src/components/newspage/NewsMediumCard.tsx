@@ -17,19 +17,14 @@ export function NewsMediumCard({ newsItem }: NewsMediumCardProps) {
         }}
       >
         <div
-          className="w-[270px] h-[270px] relative overflow-hidden"
+          className="relative flex items-center justify-center overflow-hidden"
           id="news-card-img"
         >
-          <img
-            alt="news thumbnail"
-            className="object-none object-center"
-            src={newsItem.image}
-          />
+          <img alt="news thumbnail" src={newsItem.image} width={270} />
         </div>
         <div className="flex flex-col p-4 " id="news-card-content">
-          <p className="text-sm ">시리즈</p>
-          <p className="text-lg font-bold ">{newsItem.title}</p>
-          <p className="text-lg font-bold text-end">{newsItem.content}</p>
+          <p className="text-sm font-bold ">{newsItem.title}</p>
+          <p className="mt-4 text-xs font-bold">{newsItem.content}</p>
         </div>
       </motion.div>
     </div>
