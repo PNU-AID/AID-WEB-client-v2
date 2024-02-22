@@ -17,9 +17,10 @@ function NewsPage() {
     <div className="w-[100%] min-h-screen sm:px-[100px] py-[120px] flex flex-col sm:flex-row justify-evenly gap-y-12 sm:gap-x-8">
       {newsList && (
         <>
-          <NewsSection1 newsList={newsList} />
-          <NewsSection2 newsList={newsList} />
-          <NewsSection3 newsList={newsList} />
+          <NewsSection2 newsList={newsList.slice(0, newsList.length / 2)} />
+          <NewsSection2
+            newsList={newsList.slice(newsList.length / 2, newsList.length)}
+          />
         </>
       )}
     </div>
