@@ -9,6 +9,8 @@ import AidLogoImg from '@asset/aid-logo.png';
 import { useAuthCtx } from '@store/AuthContext';
 import HeaderProfile from './HeaderProfile';
 import LanguageToggle from '../../languages/LanguageToggle';
+import { IoIosArrowDown } from 'react-icons/io';
+import { aidUrls } from '@data/aid-data';
 
 function Header() {
   const { authState } = useAuthCtx();
@@ -20,19 +22,21 @@ function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY) {
-      setIsVisible(false);
-      setIsExpanded(false);
-    } else if (currentScrollY < lastScrollY) {
-      setIsVisible(true);
-    }
-    setLastScrollY(currentScrollY);
-  };
+  const [isDropdownExpanded, setIsDropdownExpanded] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY) {
+        setIsVisible(false);
+        setIsExpanded(false);
+        setIsDropdownExpanded(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
     window.addEventListener('scroll', handleScroll, false);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -55,7 +59,7 @@ function Header() {
   return (
     <header
       className={[
-        'fixed flex items-center w-full grow z-[99999] justify-between sm:justify-evenly',
+        'fixed flex items-center w-full grow z-[99999] justify-between sm:justify-evenly text-nowrap',
         'transition-all duration-300 h-[60px]',
         lastScrollY > 0 || isExpanded ? 'bg-white' : 'bg-transparent',
         isVisible ? '' : '-translate-y-full',
@@ -94,7 +98,7 @@ function Header() {
         />
         <nav
           className={[
-            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl overflow-hidden font-sans text-center rounded-xl pb-2',
+            'flex flex-col absolute top-[60px] gap-0 sm:mb-4 w-full shadow-xl font-sans text-center rounded-xl pb-2',
             'sm:justify-end sm:w-fit sm:gap-0 sm:pt-2 sm:flex-row sm:shadow-none sm:static sm:mx-8 sm:my-2 sm:text-left sm:pb-0 sm:rounded-none',
             'transition-all duration-500',
             isExpanded
@@ -168,6 +172,55 @@ function Header() {
               </Link>
             );
           })}
+          <div className="relative flex flex-col items-center justify-center">
+            <div
+              className="flex px-6 py-3 cursor-pointer"
+              onClick={() => setIsDropdownExpanded((prev) => !prev)}
+            >
+              <button
+                className={[
+                  !isDarkPage(location.pathname)
+                    ? 'text-black'
+                    : lastScrollY > 0 || isExpanded
+                      ? textCss
+                      : 'text-black',
+                ].join(' ')}
+              >
+                Contack Us
+              </button>
+              <IoIosArrowDown
+                className={[
+                  !isDarkPage(location.pathname)
+                    ? 'text-black'
+                    : lastScrollY > 0 || isExpanded
+                      ? textCss
+                      : 'text-black',
+                ].join(' ')}
+              />
+            </div>
+            {
+              <div
+                className={[
+                  'absolute w-fit top-[60px] bg-white rounded-lg overflow-hidden duration-500 ease',
+                  isDropdownExpanded ? 'max-h-screen shadow-xl' : 'max-h-0',
+                ].join(' ')}
+              >
+                {aidUrls.map((item) => {
+                  return (
+                    <a
+                      className="flex items-center px-4 py-2 text-sm text-black cursor-pointer gap-x-1"
+                      href={item.url}
+                      key={item.label}
+                      target="_blank"
+                    >
+                      <item.image />
+                      <span>{item.label}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            }
+          </div>
         </nav>
       </div>
     </header>
