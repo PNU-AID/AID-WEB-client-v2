@@ -10,7 +10,7 @@ interface NewsSection2Props {
 export function NewsSection2({ newsList }: NewsSection2Props) {
   return (
     <div
-      className="flex flex-col max-w-[700px] max-h-screen mx-auto"
+      className="flex flex-col max-w-[500px] max-h-screen mx-auto"
       id="news-section-2"
     >
       <div className="flex flex-col items-center w-full h-screen overflow-y-scroll font-sans gap-y-8 noscrollbar">

@@ -12,10 +12,9 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
   return (
     <div className="flex flex-col gap-y-2">
       <motion.div
-        className="flex flex-col max-w-[500px] mt-8 cursor-pointer h-fit"
+        className="flex flex-col max-w-[500px] mt-8 h-fit mx-auto"
         whileHover={{
           y: -10,
-          boxShadow: '0 10px 20px 4px rgba(0, 0, 0, 0.1)',
           transition: { duration: 1 },
         }}
       >
