@@ -1,5 +1,9 @@
 import App from './App';
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createHashRouter,
+  redirect,
+} from 'react-router-dom';
 
 import type { RouteItem } from 'router';
 import MainPage from '@page/MainPage';
@@ -106,6 +110,6 @@ const router = [
   },
 ];
 
-export const routers = createBrowserRouter(router, {
+export const routers = createHashRouter(router, {
   basename: '/homepage/',
 });
