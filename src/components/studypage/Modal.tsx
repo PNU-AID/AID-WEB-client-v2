@@ -1,3 +1,4 @@
+import { statusData } from '@util/study';
 import { ModalProps } from '../../types/study';
 import {
   AiOutlineCalendar,
@@ -64,10 +65,15 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
                 <AiOutlineTeam className="inline-block mr-2" /> 모집 인원:{' '}
                 {selectedItem.max_participants}명
               </p>
-              <p>
-                <AiOutlineCheck className="inline-block mr-2" /> 상태 여부:{' '}
-                {selectedItem.status}
-              </p>
+              {statusData.map(
+                (item) =>
+                  item.status === selectedItem.status && (
+                    <p>
+                      <AiOutlineCheck className="inline-block mr-2" />
+                      상태 여부: {item.name}
+                    </p>
+                  )
+              )}
               <p>
                 <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:{' '}
                 <a href={selectedItem.study_link}>{selectedItem.study_link}</a>

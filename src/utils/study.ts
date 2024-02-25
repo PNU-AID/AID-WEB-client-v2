@@ -5,7 +5,7 @@ export const categoryData = [
 ];
 
 export const statusData = [
-  { id: 1, name: '모집 중', status: 'a' },
-  { id: 2, name: '진행 중', status: 'b' },
+  { id: 1, name: '모집 중', status: 'Not Started' },
+  { id: 2, name: '진행 중', status: 'Ongoing' },
   { id: 3, name: '진행 완료', status: 'Finished' },
 ];
