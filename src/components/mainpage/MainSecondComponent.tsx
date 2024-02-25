@@ -40,72 +40,71 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
           )}
           {!recruitInfo?.ko.title.includes('아닙니다') ||
           !recruitInfo?.en.title.includes('not') ? (
-            <div className="flex flex-col items-center w-2/3 p-4 font-sans text-xs sm:w-1/3 text-nowrap bg-slate-100">
-              <div className="flex w-full">
-                <label>{t('recruitment_schedule')}: </label>
-                <a
-                  className="ml-auto"
-                  href={
-                    currentLanguage === 'ko'
+            <>
+              <div className="flex flex-col items-center w-2/3 p-4 font-sans text-xs sm:w-1/3 text-nowrap bg-slate-100">
+                <div className="flex w-full">
+                  <label>{t('recruitment_schedule')}: </label>
+                  <a
+                    className="ml-auto"
+                    href={
+                      currentLanguage === 'ko'
+                        ? recruitInfo?.ko.recruitment_schedule
+                        : recruitInfo?.en.recruitment_schedule || '미정'
+                    }
+                    target="_blank"
+                  >
+                    {currentLanguage === 'ko'
                       ? recruitInfo?.ko.recruitment_schedule
-                      : recruitInfo?.en.recruitment_schedule || '미정'
-                  }
-                  target="_blank"
-                >
-                  {currentLanguage === 'ko'
-                    ? recruitInfo?.ko.recruitment_schedule
-                    : recruitInfo?.en.recruitment_schedule || '미정'}
-                </a>
+                      : recruitInfo?.en.recruitment_schedule || '미정'}
+                  </a>
+                </div>
+                <div className="flex w-full">
+                  <label>{t('subject_to_recruitment')}: </label>
+                  <span className="ml-auto max-w-[200px] text-wrap text-end">
+                    {currentLanguage === 'ko'
+                      ? recruitInfo?.ko.recruitment_target
+                      : recruitInfo?.en.recruitment_target || '미정'}
+                  </span>
+                </div>
+                <div className="flex w-full text-wrap">
+                  <label>{t('number_of_recruits')}: </label>
+                  <span className="ml-auto">
+                    {currentLanguage === 'ko'
+                      ? recruitInfo?.ko.num_of_people_recruited
+                      : recruitInfo?.en.num_of_people_recruited || '미정'}
+                  </span>
+                </div>
+
+                <div className="flex w-full">
+                  <label>{t('announcement_schedule')}: </label>
+                  <span className="ml-auto">
+                    {currentLanguage === 'ko'
+                      ? recruitInfo?.ko.announcement_schedule
+                      : recruitInfo?.en.announcement_schedule || '미정'}
+                  </span>
+                </div>
+                <div className="flex w-full">
+                  <label>{t('OT_schedule')}: </label>
+                  <span className="ml-auto">
+                    {currentLanguage === 'ko'
+                      ? recruitInfo?.ko.OT_schedule
+                      : recruitInfo?.en.OT_schedule || '미정'}
+                  </span>
+                </div>
               </div>
-              <div className="flex w-full">
-                <label>{t('subject_to_recruitment')}: </label>
-                <span className="ml-auto max-w-[200px] text-wrap text-end">
-                  {currentLanguage === 'ko'
-                    ? recruitInfo?.ko.recruitment_target
-                    : recruitInfo?.en.recruitment_target || '미정'}
-                </span>
-              </div>
-              <div className="flex w-full text-wrap">
-                <label>{t('number_of_recruits')}: </label>
-                <span className="ml-auto">
-                  {currentLanguage === 'ko'
-                    ? recruitInfo?.ko.num_of_people_recruited
-                    : recruitInfo?.en.num_of_people_recruited || '미정'}
-                </span>
-              </div>
-              <div className="flex w-full">
-                <label>{t('support_link')}: </label>
-                <a
-                  className="ml-auto text-blue-500 underline cursor-pointer"
-                  href={
-                    currentLanguage === 'ko'
-                      ? recruitInfo?.ko.recruitment_link
-                      : recruitInfo?.en.recruitment_link || '미정'
-                  }
-                  target="_blank"
-                >
-                  {currentLanguage === 'ko'
+              <a
+                href={
+                  currentLanguage === 'ko'
                     ? recruitInfo?.ko.recruitment_link
-                    : recruitInfo?.en.recruitment_link || '미정'}
-                </a>
-              </div>
-              <div className="flex w-full">
-                <label>{t('announcement_schedule')}: </label>
-                <span className="ml-auto">
-                  {currentLanguage === 'ko'
-                    ? recruitInfo?.ko.announcement_schedule
-                    : recruitInfo?.en.announcement_schedule || '미정'}
-                </span>
-              </div>
-              <div className="flex w-full">
-                <label>{t('OT_schedule')}: </label>
-                <span className="ml-auto">
-                  {currentLanguage === 'ko'
-                    ? recruitInfo?.ko.OT_schedule
-                    : recruitInfo?.en.OT_schedule || '미정'}
-                </span>
-              </div>
-            </div>
+                    : recruitInfo?.en.recruitment_link || '미정'
+                }
+                target="_blank"
+              >
+                <button className="px-2 py-1 text-white rounded-lg bg-primary">
+                  지원하기
+                </button>
+              </a>
+            </>
           ) : (
             <span className="text-2xl sm:text-4xl">{t('not_recruitment')}</span>
           )}
