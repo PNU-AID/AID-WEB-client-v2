@@ -1,4 +1,3 @@
-import { ProjectItemList } from '@data/study-data';
 import Posts from '../components/studypage/Posts';
 import { useQuery } from 'react-query';
 import { getStudyList } from '@api/study';
@@ -13,7 +12,7 @@ function StudyPage() {
 
   return (
     <section className="relative flex flex-col max-w-screen-xl gap-8 px-4 mx-auto mb-8 py-[20vh]">
-      <Posts projectList={ProjectItemList} studyList={study} />
+      <Posts studyList={study} />
     </section>
   );
 }

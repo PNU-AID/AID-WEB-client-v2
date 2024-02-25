@@ -1,4 +1,4 @@
-import { ModalProps, ProjectItem, StudyItem } from '../../types/study';
+import { ModalProps } from '../../types/study';
 import {
   AiOutlineCalendar,
   AiOutlineUser,
@@ -11,8 +11,6 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
   if (!isOpen || !selectedItem) {
     return null;
   }
-
-  const isStudyItem = 'study_name' in selectedItem;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -28,9 +26,7 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
         </button>
         <div className="w-full">
           <p className="mb-4 text-2xl font-bold text-center">
-            {isStudyItem
-              ? (selectedItem as StudyItem).study_name
-              : (selectedItem as ProjectItem).project_name}
+            {selectedItem.study_name}
           </p>
           <div className="flex flex-col lg:flex-row">
             {selectedItem.img_url && (
@@ -43,22 +39,19 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
             <div className="mb-4 text-base text-gray-600">
               <p>
                 <AiOutlineCalendar className="inline-block mr-2" /> 시작일:{' '}
-                {isStudyItem
-                  ? (selectedItem as StudyItem).study_start.split('T')[0]
-                  : (selectedItem as ProjectItem).project_end.split('T')[0]}
+                {selectedItem.study_start.split('T')[0]}
               </p>
               <p>
                 <AiOutlineCalendar className="inline-block mr-2" /> 종료일:{' '}
-                {isStudyItem
-                  ? (selectedItem as StudyItem).study_end.split('T')[0]
-                  : (selectedItem as ProjectItem).project_end.split('T')[0]}
+                {selectedItem.study_end.split('T')[0]}
               </p>
-              {isStudyItem && (
-                <p>
-                  <AiOutlineUser className="inline-block mr-2" /> 스터디장:{' '}
-                  {(selectedItem as StudyItem).leader}
-                </p>
-              )}
+              <p>
+                <AiOutlineUser className="inline-block mr-2" />
+                {selectedItem.study_type === 'Study'
+                  ? '스터디장'
+                  : '프로젝트장'}
+                : {selectedItem.leader}
+              </p>
               <p>
                 <AiOutlineTeam className="inline-block mr-2" /> 모집 인원:{' '}
                 {selectedItem.max_participants}명
@@ -69,17 +62,7 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
               </p>
               <p>
                 <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:{' '}
-                <a
-                  href={
-                    isStudyItem
-                      ? (selectedItem as StudyItem).study_link
-                      : (selectedItem as ProjectItem).project_link
-                  }
-                >
-                  {isStudyItem
-                    ? (selectedItem as StudyItem).study_link
-                    : (selectedItem as ProjectItem).project_link}
-                </a>
+                <a href={selectedItem.study_link}>{selectedItem.study_link}</a>
               </p>
             </div>
           </div>
@@ -87,9 +70,7 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
         <div className="max-h-60">
           <p className="pt-6 pb-6 text-base text-gray-700">
             <AiOutlineFileText className="inline-block mr-2" /> 모집 설명 <br />
-            {isStudyItem
-              ? (selectedItem as StudyItem).study_description
-              : (selectedItem as ProjectItem).project_description}
+            {selectedItem.study_description}
           </p>
         </div>
       </div>

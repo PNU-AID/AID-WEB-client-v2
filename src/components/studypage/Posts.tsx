@@ -1,22 +1,14 @@
 import { useEffect, useState } from 'react';
 import { categoryData, statusData } from '@util/study';
-import { ProjectItem, StudyItem } from '../../types/study';
+import { StudyItem } from '../../types/study';
 import Search from './Search';
 import Modal from './Modal';
 
-type CombinedItem = StudyItem | ProjectItem;
-
-export default function Posts({
-  studyList,
-  projectList,
-}: {
-  studyList: StudyItem[];
-  projectList: ProjectItem[];
-}) {
-  const [items, setItems] = useState<CombinedItem[]>([]);
+export default function Posts({ studyList }: { studyList: StudyItem[] }) {
+  const [items, setItems] = useState<StudyItem[]>([]);
   const [status, setStatus] = useState<string>();
   const [category, setCategory] = useState<string>('전체');
-  const [selectedItem, setSelectedItem] = useState<CombinedItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<StudyItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [searchText, setSearchText] = useState<string>('');
 
@@ -33,16 +25,17 @@ export default function Posts({
   }, []);
 
   useEffect(() => {
-    setItems([...studyList, ...projectList]);
-  }, [studyList, projectList]);
+    setItems(studyList);
+  }, [studyList]);
+  console.log(studyList);
 
   const filterCategory = (selectedCategory: string) => {
     setStatus('');
     setCategory(selectedCategory);
-    if (selectedCategory === '전체') {
-      setItems([...studyList, ...projectList]);
+    if (selectedCategory === '스터디') {
+      setItems(studyList.filter((item) => item.study_type === 'Study'));
     } else if (selectedCategory === '프로젝트') {
-      setItems(projectList);
+      setItems(studyList.filter((item) => item.study_type === 'Project'));
     } else {
       setItems(studyList);
     }
@@ -53,11 +46,11 @@ export default function Posts({
       prevStatus === selectedStatus ? '' : selectedStatus
     );
     let filteredItems =
-      category === '프로젝트'
-        ? projectList
-        : category === '스터디'
-          ? studyList
-          : [...studyList, ...projectList];
+      category === '스터디'
+        ? studyList.filter((item) => item.study_type === 'Study')
+        : category === '프로젝트'
+          ? studyList.filter((item) => item.study_type === 'Project')
+          : studyList;
 
     if (status !== selectedStatus) {
       filteredItems = filteredItems.filter(
@@ -67,7 +60,7 @@ export default function Posts({
     setItems(filteredItems);
   };
 
-  const handleItemClick = (selectedItem: CombinedItem) => {
+  const handleItemClick = (selectedItem: StudyItem) => {
     setSelectedItem(selectedItem);
     setIsModalOpen(true);
   };
@@ -80,23 +73,15 @@ export default function Posts({
     setSearchText(text);
   };
 
-  const applyFilters = (itemsToFilter: CombinedItem[]) => {
+  const applyFilters = (itemsToFilter: StudyItem[]) => {
     return itemsToFilter.filter((item) => {
       return (
         ('study_name' in item &&
           item.study_name &&
           item.study_name.toLowerCase().includes(searchText.toLowerCase())) ||
-        ('project_name' in item &&
-          item.project_name &&
-          item.project_name.toLowerCase().includes(searchText.toLowerCase())) ||
         ('study_description' in item &&
           item.study_description &&
           item.study_description
-            .toLowerCase()
-            .includes(searchText.toLowerCase())) ||
-        ('project_description' in item &&
-          item.project_description &&
-          item.project_description
             .toLowerCase()
             .includes(searchText.toLowerCase()))
       );
@@ -105,9 +90,7 @@ export default function Posts({
 
   const filteredItems = searchText ? applyFilters(items) : items;
   const sortedItems = filteredItems.sort((a, b) => {
-    const dateA = 'study_end' in a ? a.study_end : a.project_end;
-    const dateB = 'study_end' in b ? b.study_end : b.project_end;
-    return new Date(dateA).getTime() - new Date(dateB).getTime();
+    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
   });
 
   return (
@@ -155,12 +138,7 @@ export default function Posts({
             >
               <div className="flex justify-between mb-3 text-sm font-bold text-gray-400 border-b-2">
                 <span>{'study_name' in item ? '스터디' : '프로젝트'}</span>
-                <span>
-                  ~
-                  {'study_name' in item
-                    ? (item as StudyItem).study_end.split('T')[0]
-                    : (item as ProjectItem).project_end.split('T')[0]}
-                </span>
+                <span>~{item.study_end.split('T')[0]}</span>
               </div>
               <div className="flex items-center justify-center h-40 mb-5">
                 <img
@@ -171,14 +149,10 @@ export default function Posts({
               </div>
               <div className="ml-3 mr-3">
                 <p className="text-xl font-bold text-gray-800">
-                  {'study_name' in item
-                    ? (item as StudyItem).study_name
-                    : (item as ProjectItem).project_name}
+                  {item.study_name}
                 </p>
                 <p className="h-20 mt-2 overflow-hidden text-sm text-gray-600">
-                  {'study_description' in item
-                    ? (item as StudyItem).study_description
-                    : (item as ProjectItem).project_description}
+                  {item.study_description}
                 </p>
               </div>
             </div>
