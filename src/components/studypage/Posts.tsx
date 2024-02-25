@@ -72,6 +72,7 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
   const handleSearch = (text: string) => {
     setSearchText(text);
   };
+  console.log(studyList);
 
   const applyFilters = (itemsToFilter: StudyItem[]) => {
     return itemsToFilter.filter((item) => {
@@ -90,7 +91,7 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
 
   const filteredItems = searchText ? applyFilters(items) : items;
   const sortedItems = filteredItems.sort((a, b) => {
-    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
   });
 
   return (
@@ -137,7 +138,9 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
               onClick={() => handleItemClick(item)}
             >
               <div className="flex justify-between mb-3 text-sm font-bold text-gray-400 border-b-2">
-                <span>{'study_name' in item ? '스터디' : '프로젝트'}</span>
+                <span>
+                  {item.study_type === 'Study' ? '스터디' : '프로젝트'}
+                </span>
                 <span>
                   {item.study_end ? `~${item.study_end.split('T')[0]}` : ''}
                 </span>
