@@ -10,21 +10,19 @@ interface NewsSection2Props {
 export function NewsSection2({ newsList }: NewsSection2Props) {
   return (
     <div
-      className="flex flex-col max-w-[500px] max-h-screen mx-auto"
+      className="grid flex-col items-center w-full grid-cols-1 mx-auto font-sans gap-y-8 sm:grid-cols-2"
       id="news-section-2"
     >
-      <div className="flex flex-col items-center w-full h-screen overflow-y-scroll font-sans gap-y-8 noscrollbar">
-        {isArray(newsList) ? (
-          newsList.map((item) => (
-            <NewsLargeCard key={item.id + '-' + item.title} newsItem={item} />
-          ))
-        ) : (
-          <div className="flex flex-col w-4/5 gap-y-4">
-            <Skeleton height={400} />
-            <Skeleton height={400} />
-          </div>
-        )}
-      </div>
+      {isArray(newsList) ? (
+        newsList.map((item) => (
+          <NewsLargeCard key={item.id + '-' + item.title} newsItem={item} />
+        ))
+      ) : (
+        <div className="flex flex-col w-4/5 gap-y-4">
+          <Skeleton height={400} />
+          <Skeleton height={400} />
+        </div>
+      )}
     </div>
   );
 }
