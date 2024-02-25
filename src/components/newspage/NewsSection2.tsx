@@ -10,7 +10,7 @@ interface NewsSection2Props {
 export function NewsSection2({ newsList }: NewsSection2Props) {
   return (
     <div
-      className="grid flex-col items-center w-full grid-cols-1 mx-auto font-sans gap-y-8 sm:grid-cols-2"
+      className="grid flex-col items-center w-full grid-cols-1 mx-auto font-sans justify-items-center gap-y-8 sm:grid-cols-2"
       id="news-section-2"
     >
       {isArray(newsList) ? (
