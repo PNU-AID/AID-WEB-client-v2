@@ -8,3 +8,8 @@ export interface RecruitmentData {
   OT_schedule: string;
   announcement_schedule: string;
 }
+
+export interface LanguageInfo {
+  ko: RecruitmentData;
+  en: RecruitmentData;
+}
