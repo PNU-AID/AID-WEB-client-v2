@@ -90,56 +90,56 @@ export const StudyItemList: StudyItem[] = [
 ];
 
 export const ProjectItemList: ProjectItem[] = [
-  {
-    id: 1,
-    status: '모집 중',
-    projectName: 'AID_WEB (frontend)',
-    projectDescription:
-      '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
-    projectLink: 'https://www.naver.com/',
-    imgUrl: projectImg,
-    // 추가
-    date: '2024.01.08',
-    number: '10',
-    target: '파이썬에 능숙하신 분~~~~',
-  },
-  {
-    id: 2,
-    status: '진행 중',
-    projectName: 'AID_WEB (frontend)',
-    projectDescription:
-      '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
-    projectLink: 'https://www.naver.com/',
-    imgUrl: projectImg,
-    // 추가
-    date: '2024.01.11',
-    number: '10',
-    target: '파이썬에 능숙하신 분~~~~',
-  },
-  {
-    id: 3,
-    status: '모집 중',
-    projectName: 'AID_WEB (frontend)',
-    projectDescription:
-      '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
-    projectLink: 'https://www.naver.com/',
-    imgUrl: projectImg,
-    // 추가
-    date: '2024.01.02',
-    number: '10',
-    target: '파이썬에 능숙하신 분~~~~',
-  },
-  {
-    id: 4,
-    status: '진행 완료',
-    projectName: 'AID_WEB (frontend)',
-    projectDescription:
-      '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
-    projectLink: 'https://www.naver.com/',
-    imgUrl: projectImg,
-    // 추가
-    date: '2024.01.05',
-    number: '10',
-    target: '파이썬에 능숙하신 분~~~~',
-  },
+  // {
+  //   id: 1,
+  //   status: '모집 중',
+  //   projectName: 'AID_WEB (frontend)',
+  //   projectDescription:
+  //     '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
+  //   projectLink: 'https://www.naver.com/',
+  //   imgUrl: projectImg,
+  //   // 추가
+  //   date: '2024.01.08',
+  //   number: '10',
+  //   target: '파이썬에 능숙하신 분~~~~',
+  // },
+  // {
+  //   id: 2,
+  //   status: '진행 중',
+  //   projectName: 'AID_WEB (frontend)',
+  //   projectDescription:
+  //     '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
+  //   projectLink: 'https://www.naver.com/',
+  //   imgUrl: projectImg,
+  //   // 추가
+  //   date: '2024.01.11',
+  //   number: '10',
+  //   target: '파이썬에 능숙하신 분~~~~',
+  // },
+  // {
+  //   id: 3,
+  //   status: '모집 중',
+  //   projectName: 'AID_WEB (frontend)',
+  //   projectDescription:
+  //     '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
+  //   projectLink: 'https://www.naver.com/',
+  //   imgUrl: projectImg,
+  //   // 추가
+  //   date: '2024.01.02',
+  //   number: '10',
+  //   target: '파이썬에 능숙하신 분~~~~',
+  // },
+  // {
+  //   id: 4,
+  //   status: '진행 완료',
+  //   projectName: 'AID_WEB (frontend)',
+  //   projectDescription:
+  //     '기본적으로 리액션을 할 줄 알고 Typescript 어쩌구 저쩌구...... 하는 분을 구합니다.',
+  //   projectLink: 'https://www.naver.com/',
+  //   imgUrl: projectImg,
+  //   // 추가
+  //   date: '2024.01.05',
+  //   number: '10',
+  //   target: '파이썬에 능숙하신 분~~~~',
+  // },
 ];

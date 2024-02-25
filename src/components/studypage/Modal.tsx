@@ -12,7 +12,7 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
     return null;
   }
 
-  const isStudyItem = 'studyName' in selectedItem;
+  const isStudyItem = 'study_name' in selectedItem;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -29,49 +29,56 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
         <div className="w-full">
           <p className="mb-4 text-2xl font-bold text-center">
             {isStudyItem
-              ? (selectedItem as StudyItem).studyName
-              : (selectedItem as ProjectItem).projectName}
+              ? (selectedItem as StudyItem).study_name
+              : (selectedItem as ProjectItem).project_name}
           </p>
           <div className="flex flex-col lg:flex-row">
-            {selectedItem.imgUrl && (
+            {selectedItem.img_url && (
               <img
                 alt="이미지"
                 className="w-full h-auto mb-8 lg:w-1/3 lg:mr-8 lg:mb-0"
-                src={selectedItem.imgUrl}
+                src={selectedItem.img_url}
               />
             )}
             <div className="mb-4 text-base text-gray-600">
               <p>
-                <AiOutlineCalendar className="inline-block mr-2" /> 마감일:{' '}
-                {selectedItem.date}
+                <AiOutlineCalendar className="inline-block mr-2" /> 시작일:{' '}
+                {isStudyItem
+                  ? (selectedItem as StudyItem).study_start.split('T')[0]
+                  : (selectedItem as ProjectItem).project_end.split('T')[0]}
+              </p>
+              <p>
+                <AiOutlineCalendar className="inline-block mr-2" /> 종료일:{' '}
+                {isStudyItem
+                  ? (selectedItem as StudyItem).study_end.split('T')[0]
+                  : (selectedItem as ProjectItem).project_end.split('T')[0]}
               </p>
               {isStudyItem && (
                 <p>
                   <AiOutlineUser className="inline-block mr-2" /> 스터디장:{' '}
-                  {(selectedItem as StudyItem).leaderId}
+                  {(selectedItem as StudyItem).leader}
                 </p>
               )}
               <p>
                 <AiOutlineTeam className="inline-block mr-2" /> 모집 인원:{' '}
-                {selectedItem.number}명
+                {selectedItem.max_participants}명
               </p>
               <p>
                 <AiOutlineCheck className="inline-block mr-2" /> 상태 여부:{' '}
                 {selectedItem.status}
               </p>
               <p>
-                <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:
-                &nbsp;
+                <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:{' '}
                 <a
                   href={
                     isStudyItem
-                      ? (selectedItem as StudyItem).studyLink
-                      : (selectedItem as ProjectItem).projectLink
+                      ? (selectedItem as StudyItem).study_link
+                      : (selectedItem as ProjectItem).project_link
                   }
                 >
                   {isStudyItem
-                    ? (selectedItem as StudyItem).studyLink
-                    : (selectedItem as ProjectItem).projectLink}
+                    ? (selectedItem as StudyItem).study_link
+                    : (selectedItem as ProjectItem).project_link}
                 </a>
               </p>
             </div>
@@ -81,8 +88,8 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
           <p className="pt-6 pb-6 text-base text-gray-700">
             <AiOutlineFileText className="inline-block mr-2" /> 모집 설명 <br />
             {isStudyItem
-              ? (selectedItem as StudyItem).studyDescription
-              : (selectedItem as ProjectItem).projectDescription}
+              ? (selectedItem as StudyItem).study_description
+              : (selectedItem as ProjectItem).project_description}
           </p>
         </div>
       </div>
