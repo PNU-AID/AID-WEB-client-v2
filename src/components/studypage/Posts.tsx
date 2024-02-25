@@ -117,7 +117,7 @@ export default function Posts() {
           </div>
         ))}
       </section>
-      <section className="flex items-center justify-between">
+      <section className="flex flex-wrap items-center justify-between">
         <section className="flex gap-3">
           {statusData.map((item, index) => (
             <div
@@ -129,11 +129,13 @@ export default function Posts() {
               key={index}
               onClick={() => filterStatus(item.name)}
             >
-              {item.name}만 보기
+              {window.innerWidth > 768 ? `${item.name}만 보기` : item.name}
             </div>
           ))}
         </section>
-        <Search onSearch={handleSearch} />
+        <section className="mt-4 sm:flex-col">
+          <Search onSearch={handleSearch} />
+        </section>
       </section>
       <section>
         <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">

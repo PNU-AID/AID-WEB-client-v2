@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div
-        className="relative w-1/2 p-8 overflow-y-auto bg-white rounded-lg shadow-lg h-2/3"
+        className="relative w-full p-8 overflow-y-auto bg-white rounded-lg shadow-lg lg:w-3/5 md:w-2/3 h-2/3"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <button
