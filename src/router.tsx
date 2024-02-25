@@ -1,9 +1,5 @@
 import App from './App';
-import {
-  createBrowserRouter,
-  createHashRouter,
-  redirect,
-} from 'react-router-dom';
+import { createHashRouter, redirect } from 'react-router-dom';
 
 import type { RouteItem } from 'router';
 import MainPage from '@page/MainPage';
