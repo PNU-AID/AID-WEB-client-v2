@@ -20,6 +20,7 @@ const Search = ({ onSearch }: { onSearch: (searchText: string) => void }) => {
       <RiSearchLine className="absolute text-gray-500 left-3 top-2" />
       <input
         className="w-64 pl-10 font-semibold bg-transparent outline-none"
+        name="search"
         onChange={handleChange}
         placeholder="제목이나 내용을 검색해보세요."
         value={inputValue}

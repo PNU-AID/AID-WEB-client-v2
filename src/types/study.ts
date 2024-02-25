@@ -2,29 +2,18 @@ import { ChangeEvent } from 'react';
 
 export interface StudyItem {
   id: number;
-  leaderId: number;
   status: string;
-  studyName: string;
-  studyDescription: string;
-  studyLink: string;
-  imgUrl: string;
-  // 추가
-  date: string;
-  number: string;
-  target: string;
-}
-
-export interface ProjectItem {
-  id: number;
-  status: string;
-  projectName: string;
-  projectDescription: string;
-  projectLink: string;
-  imgUrl: string;
-  // 추가
-  date: string;
-  number: string;
-  target: string;
+  study_type: string;
+  study_name: string;
+  study_description: string;
+  study_link: string;
+  max_participants: number;
+  leader: string;
+  participants: string[];
+  img_url: string;
+  created_at: string;
+  study_start: string;
+  study_end: string;
 }
 
 export interface OptionProps {
@@ -41,8 +30,6 @@ export interface SelectProps {
 
 export interface ModalProps {
   isOpen: boolean;
+  selectedItem: StudyItem | null;
   onClose: () => void;
-  selectedItem: CombinedItem | null;
 }
-
-type CombinedItem = StudyItem | ProjectItem;

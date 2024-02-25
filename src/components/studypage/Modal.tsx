@@ -1,4 +1,4 @@
-import { ModalProps, ProjectItem, StudyItem } from '../../types/study';
+import { ModalProps } from '../../types/study';
 import {
   AiOutlineCalendar,
   AiOutlineUser,
@@ -7,17 +7,15 @@ import {
   AiOutlineFileText,
 } from 'react-icons/ai';
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
+export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
   if (!isOpen || !selectedItem) {
     return null;
   }
 
-  const isStudyItem = 'studyName' in selectedItem;
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div
-        className="relative w-1/2 p-8 overflow-y-auto bg-white rounded-lg shadow-lg h-2/3"
+        className="relative w-full p-8 overflow-y-auto bg-white rounded-lg shadow-lg lg:w-3/5 md:w-2/3 h-2/3"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <button
@@ -28,51 +26,43 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
         </button>
         <div className="w-full">
           <p className="mb-4 text-2xl font-bold text-center">
-            {isStudyItem
-              ? (selectedItem as StudyItem).studyName
-              : (selectedItem as ProjectItem).projectName}
+            {selectedItem.study_name}
           </p>
           <div className="flex flex-col lg:flex-row">
-            {selectedItem.imgUrl && (
+            {selectedItem.img_url && (
               <img
                 alt="이미지"
                 className="w-full h-auto mb-8 lg:w-1/3 lg:mr-8 lg:mb-0"
-                src={selectedItem.imgUrl}
+                src={selectedItem.img_url}
               />
             )}
             <div className="mb-4 text-base text-gray-600">
               <p>
-                <AiOutlineCalendar className="inline-block mr-2" /> 마감일:{' '}
-                {selectedItem.date}
+                <AiOutlineCalendar className="inline-block mr-2" /> 시작일:{' '}
+                {selectedItem.study_start.split('T')[0]}
               </p>
-              {isStudyItem && (
-                <p>
-                  <AiOutlineUser className="inline-block mr-2" /> 스터디장:{' '}
-                  {(selectedItem as StudyItem).leaderId}
-                </p>
-              )}
+              <p>
+                <AiOutlineCalendar className="inline-block mr-2" /> 종료일:{' '}
+                {selectedItem.study_end.split('T')[0]}
+              </p>
+              <p>
+                <AiOutlineUser className="inline-block mr-2" />
+                {selectedItem.study_type === 'Study'
+                  ? '스터디장'
+                  : '프로젝트장'}
+                : {selectedItem.leader}
+              </p>
               <p>
                 <AiOutlineTeam className="inline-block mr-2" /> 모집 인원:{' '}
-                {selectedItem.number}명
+                {selectedItem.max_participants}명
               </p>
               <p>
                 <AiOutlineCheck className="inline-block mr-2" /> 상태 여부:{' '}
                 {selectedItem.status}
               </p>
               <p>
-                <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:
-                &nbsp;
-                <a
-                  href={
-                    isStudyItem
-                      ? (selectedItem as StudyItem).studyLink
-                      : (selectedItem as ProjectItem).projectLink
-                  }
-                >
-                  {isStudyItem
-                    ? (selectedItem as StudyItem).studyLink
-                    : (selectedItem as ProjectItem).projectLink}
-                </a>
+                <AiOutlineFileText className="inline-block mr-2" /> 정리 자료:{' '}
+                <a href={selectedItem.study_link}>{selectedItem.study_link}</a>
               </p>
             </div>
           </div>
@@ -80,14 +70,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
         <div className="max-h-60">
           <p className="pt-6 pb-6 text-base text-gray-700">
             <AiOutlineFileText className="inline-block mr-2" /> 모집 설명 <br />
-            {isStudyItem
-              ? (selectedItem as StudyItem).studyDescription
-              : (selectedItem as ProjectItem).projectDescription}
+            {selectedItem.study_description}
           </p>
         </div>
       </div>
     </div>
   );
-};
-
-export default Modal;
+}
