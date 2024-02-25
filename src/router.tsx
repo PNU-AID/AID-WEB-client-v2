@@ -106,4 +106,4 @@ const router = [
   },
 ];
 
-export const routers = createHashRouter(router, {});
+export const routers = createHashRouter(router);
