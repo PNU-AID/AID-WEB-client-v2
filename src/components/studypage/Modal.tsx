@@ -38,12 +38,20 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
             )}
             <div className="mb-4 text-base text-gray-600">
               <p>
-                <AiOutlineCalendar className="inline-block mr-2" /> 시작일:{' '}
-                {selectedItem.study_start.split('T')[0]}
+                {selectedItem.study_start && (
+                  <span>
+                    <AiOutlineCalendar className="inline-block mr-2" /> 시작일:{' '}
+                    {selectedItem.study_start.split('T')[0]}
+                  </span>
+                )}
               </p>
               <p>
-                <AiOutlineCalendar className="inline-block mr-2" /> 종료일:{' '}
-                {selectedItem.study_end.split('T')[0]}
+                {selectedItem.study_end && (
+                  <span>
+                    <AiOutlineCalendar className="inline-block mr-2" /> 종료일:{' '}
+                    {selectedItem.study_end.split('T')[0]}
+                  </span>
+                )}
               </p>
               <p>
                 <AiOutlineUser className="inline-block mr-2" />

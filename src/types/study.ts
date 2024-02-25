@@ -12,8 +12,8 @@ export interface StudyItem {
   participants: string[];
   img_url: string;
   created_at: string;
-  study_start: string;
-  study_end: string;
+  study_start?: string;
+  study_end?: string;
 }
 
 export interface OptionProps {
