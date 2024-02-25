@@ -11,7 +11,7 @@ export default function MainThirdComponent({
   const { t } = useTranslation();
   const index = 2;
   return (
-    <section className="flex items-center justify-center w-full min-h-screen bg-white">
+    <section className="flex items-center justify-center w-full min-h-screen overflow-hidden bg-white">
       <motion.div
         animate={{
           scale: activeSection === index ? 1.3 : 1,
