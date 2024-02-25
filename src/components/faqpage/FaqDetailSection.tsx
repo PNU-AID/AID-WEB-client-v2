@@ -15,8 +15,8 @@ export default function FaqDetailSection({ faqContent }: FaqSectionProps) {
   };
 
   return (
-    <section className="w-[600px] h-[600px] flex flex-col">
-      <div className="flex flex-col gap-y-4">
+    <section className="max-w-[600px] h-[600px] flex flex-col">
+      <div className="flex flex-col px-2 gap-y-4 sm:px-0">
         <div
           className="flex items-center cursor-pointer gap-x-2"
           id="category-return-btn"
@@ -26,7 +26,7 @@ export default function FaqDetailSection({ faqContent }: FaqSectionProps) {
           <span className="text-gray-500">질문 목록</span>
         </div>
         <article className="flex flex-col gap-y-8">
-          <h1 className="text-4xl font-bold">{faqContent.title}</h1>
+          <h1 className="text-3xl font-bold sm:text-4xl">{faqContent.title}</h1>
           <p className="text-lg">{faqContent.content}</p>
         </article>
       </div>

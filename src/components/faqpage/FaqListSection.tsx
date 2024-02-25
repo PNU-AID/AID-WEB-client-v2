@@ -11,7 +11,7 @@ export default function FaqListSection({
   handleFaqButtonClick,
 }: FaqSectionProps) {
   return (
-    <section className="flex flex-col w-[600px] h-[600px] overflow-y-auto">
+    <section className="flex flex-col max-w-[600px] h-[600px] overflow-y-auto">
       {contentList &&
         contentList.map((item) => {
           return (
