@@ -106,6 +106,4 @@ const router = [
   },
 ];
 
-export const routers = createHashRouter(router, {
-  basename: '/homepage/',
-});
+export const routers = createHashRouter(router);
