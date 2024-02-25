@@ -72,6 +72,7 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
   const handleSearch = (text: string) => {
     setSearchText(text);
   };
+  console.log(studyList);
 
   const applyFilters = (itemsToFilter: StudyItem[]) => {
     return itemsToFilter.filter((item) => {
@@ -90,7 +91,7 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
 
   const filteredItems = searchText ? applyFilters(items) : items;
   const sortedItems = filteredItems.sort((a, b) => {
-    return new Date(a.created_at).getTime() - new Date(b.created_at).getTime();
+    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
   });
 
   return (
