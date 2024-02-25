@@ -1,8 +1,9 @@
 {
   "number_of_recruits": "모집인원",
   "subject_to_recruitment": "모집대상",
+  "recruitment_schedule": "모집일정",
   "support_link": "지원링크",
-  "OT_schedule": "OT 일정",
+  "OT_schedule": "오리엔테이션(OT) 일정",
   "announcement_schedule": "합격자 발표 일정",
   "not_recruitment": "모집 기간이 아닙니다!",
   "main_first_description": "AID는 AI 개발에 관심있는 사람들이 함께 스터디와 세미나를 진행하고, 대회와 프로젝트를 하며 발전하는 동아리입니다.",

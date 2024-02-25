@@ -23,7 +23,7 @@ export default function MainThirdComponent({
         <div className="flex flex-col items-center justify-center w-full h-full gap-4 m-auto text-center">
           <h1 className="mb-8 text-4xl text-primary">About Us</h1>
           <hr className="w-20 h-1 mb-12 bg-black" />
-          <p className="w-2/3 text-xs leading-6 font-tae sm:px-0">
+          <p className="w-2/3 text-xs leading-6 sm:w-[1000px] sm:max-w-[1200px] font-tae sm:px-0">
             {t('main_first_description')}
             <br />
             <br className="block sm:hidden" />
@@ -32,7 +32,7 @@ export default function MainThirdComponent({
             <br className="block sm:hidden" />
             {t('main_third_description')}
             <br />
-            <br className="block sm:hidden" />
+            <br className="block sm:hidden text-wrap" />
             {t('main_fourth_description')}
           </p>
         </div>
