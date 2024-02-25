@@ -8,7 +8,8 @@ interface MainSecondComponentProps {
 }
 
 function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
   const index = 1;
 
   const { data: recruitInfo } = useQuery({
@@ -29,45 +30,63 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
         <>
           <span className="text-4xl sm:text-7xl">AI Developer</span>
           <div className="w-1/3 h-1 bg-secondary" />
-          {!recruitInfo?.title.includes('아닙니다') && (
+          {(!recruitInfo?.ko.title.includes('아닙니다') ||
+            !recruitInfo?.en.title.includes('not')) && (
             <h2 className="text-xl text-center">
-              {recruitInfo?.title || '미정'}
+              {currentLanguage === 'ko'
+                ? recruitInfo?.ko.title
+                : recruitInfo?.en.title || '미정'}
             </h2>
           )}
-          {!recruitInfo?.title.includes('아닙니다') ? (
+          {!recruitInfo?.ko.title.includes('아닙니다') ||
+          !recruitInfo?.en.title.includes('not') ? (
             <div className="flex flex-col items-center w-2/3 text-sm sm:w-1/3 sm:text-lg font-pretendard">
               <div className="flex w-full">
                 <label>{t('number_of_recruits')}: </label>
                 <span className="ml-auto">
-                  {recruitInfo?.num_of_people_recruited || '미정'}
+                  {currentLanguage === 'ko'
+                    ? recruitInfo?.ko.num_of_people_recruited
+                    : recruitInfo?.en.num_of_people_recruited || '미정'}
                 </span>
               </div>
               <div className="flex w-full">
                 <label>{t('subject_to_recruitment')}: </label>
                 <span className="ml-auto">
-                  {recruitInfo?.recruitment_target || '미정'}
+                  {currentLanguage === 'ko'
+                    ? recruitInfo?.ko.recruitment_target
+                    : recruitInfo?.en.recruitment_target || '미정'}
                 </span>
               </div>
               <div className="flex w-full">
                 <label>{t('support_link')}: </label>
                 <a
                   className="ml-auto text-blue-500 underline cursor-pointer"
-                  href={recruitInfo?.recruitment_link || '미정'}
+                  href={
+                    currentLanguage === 'ko'
+                      ? recruitInfo?.ko.recruitment_link
+                      : recruitInfo?.en.recruitment_link || '미정'
+                  }
                   target="_blank"
                 >
-                  {recruitInfo?.recruitment_link || '미정'}
+                  {currentLanguage === 'ko'
+                    ? recruitInfo?.ko.recruitment_link
+                    : recruitInfo?.en.recruitment_link || '미정'}
                 </a>
               </div>
               <div className="flex w-full">
-                <label>{t('interview_period')}: </label>
+                <label>{t('announcement_schedule')}: </label>
                 <span className="ml-auto">
-                  {recruitInfo?.interview_schedule || '미정'}
+                  {currentLanguage === 'ko'
+                    ? recruitInfo?.ko.announcement_schedule
+                    : recruitInfo?.en.announcement_schedule || '미정'}
                 </span>
               </div>
               <div className="flex w-full">
-                <label>{t('announcement_date')}: </label>
+                <label>{t('OT_schedule')}: </label>
                 <span className="ml-auto">
-                  {recruitInfo?.announcement_schedule || '미정'}
+                  {currentLanguage === 'ko'
+                    ? recruitInfo?.ko.OT_schedule
+                    : recruitInfo?.en.OT_schedule || '미정'}
                 </span>
               </div>
             </div>

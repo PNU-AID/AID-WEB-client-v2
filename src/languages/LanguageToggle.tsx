@@ -3,7 +3,7 @@ import i18next from './i18n';
 import { languages } from './languages';
 
 function LanguageToggle() {
-  const [currentLanguage, setCurrentLanguage] = useState<string>('en');
+  const [currentLanguage, setCurrentLanguage] = useState<string>('ko');
 
   const changeLanguage = (lng: string) => {
     i18next.changeLanguage(lng);
