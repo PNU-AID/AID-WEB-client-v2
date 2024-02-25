@@ -7,7 +7,7 @@ import {
   AiOutlineFileText,
 } from 'react-icons/ai';
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
+export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
   if (!isOpen || !selectedItem) {
     return null;
   }
@@ -88,6 +88,4 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, selectedItem }) => {
       </div>
     </div>
   );
-};
-
-export default Modal;
+}
