@@ -81,21 +81,17 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-y-2 min-w-[300px] sm:min-w-[1000px]">
+    <section className="flex flex-col items-center justify-center gap-y-2 min-w-[300px] sm:min-w-[1000px] sm:px-40">
       <h1 className="w-full my-10 text-4xl font-bold text-center">FAQ</h1>
       <hr className="w-20 h-1 mb-20 bg-black" />
       <div
-        className="relative w-full m-4 border-b border-gray-400 h-fit focus:border-primary"
+        className="flex items-center justify-center w-[calc(100%-32px)] p-4 my-4 border-b border-gray-400 gap-x-2 h-fit focus:border-primary"
         id="faq-search"
         ref={divRef}
       >
-        <SlMagnifier
-          className="absolute top-0 left-0 m-auto bottom-4"
-          color="gray"
-          size={28}
-        />
+        <SlMagnifier className="m-auto" color="gray" size={28} />
         <input
-          className="w-full h-full ml-12 text-2xl focus:outline-none text-[#4e5968] pb-4"
+          className="w-full h-full text-2xl focus:outline-none text-[#4e5968]"
           onChange={(e) => setSearchTerm(e.target.value)}
           onFocus={() => setIsFocused(true)}
           placeholder="무엇이든 찾아보세요"
@@ -129,7 +125,10 @@ export default function FaqSection() {
       </div>
       {isArray(faqContentList) ? (
         faqContentList && (
-          <div className="relative flex w-full font-pretendard" id="faq-body">
+          <div
+            className="relative flex flex-col w-full sm:flex-row font-pretendard"
+            id="faq-body"
+          >
             <FaqSidebar
               categoryList={faqCategoryList}
               onClick={handleCategory}

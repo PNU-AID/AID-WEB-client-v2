@@ -11,7 +11,7 @@ export default function FaqSidebar({ categoryList, onClick }: FaqSidebarProps) {
   const categoryId = searchParams.get('category') || '활동';
 
   return (
-    <aside className="h-fit w-[200px] bg-white flex flex-col gap-4">
+    <aside className="h-fit w-full sm:w-[200px] bg-white flex flex-row sm:flex-col overflow-auto gap-y-4 text-nowrap">
       {categoryList.map((item) => {
         return (
           <FaqButton
