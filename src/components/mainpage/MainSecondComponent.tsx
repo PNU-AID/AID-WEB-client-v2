@@ -60,7 +60,7 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
                 </div>
                 <div className="flex w-full">
                   <label>{t('subject_to_recruitment')}: </label>
-                  <span className="ml-auto max-w-[200px] text-wrap text-end">
+                  <span className="ml-auto max-w-[300px] text-wrap text-end">
                     {currentLanguage === 'ko'
                       ? recruitInfo?.ko.recruitment_target
                       : recruitInfo?.en.recruitment_target || '미정'}
