@@ -10,9 +10,9 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
     'ko-KR'
   );
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex flex-col gap-y-2 max-w-[500px]">
       <motion.div
-        className="flex flex-col max-w-[500px] mt-8 h-fit mx-auto"
+        className="flex flex-col mx-auto mt-8 h-fit"
         whileHover={{
           y: -10,
           transition: { duration: 1 },
@@ -27,7 +27,7 @@ export function NewsLargeCard({ newsItem }: NewsLargeCardProps) {
           <p className="">{newsItem.content}</p>
         </div>
       </motion.div>
-      <label className="mr-4 text-sm text-gray-400 text-mono text-start">
+      <label className="mr-4 text-sm text-gray-400 text-mono text-end">
         {formattedDate}
       </label>
     </div>
