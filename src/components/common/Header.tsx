@@ -102,7 +102,7 @@ function Header() {
             isDropdownExpanded ? '' : 'overflow-hidden',
           ].join(' ')}
         >
-          <a href={import.meta.env.VITE_AID_NOTION_NEWS_URL} target="_blank">
+          {/* <a href={import.meta.env.VITE_AID_NOTION_NEWS_URL} target="_blank">
             <Button
               className={[
                 !isDarkPage(location.pathname)
@@ -114,7 +114,7 @@ function Header() {
               label="About Us"
               size="large"
             />
-          </a>
+          </a> */}
           {headerData.map((item) => {
             if (item.label === 'Login') {
               if (authState.isAuthenticated) {
@@ -182,7 +182,7 @@ function Header() {
                       : 'text-black',
                 ].join(' ')}
               >
-                Contack Us
+                About Us
               </button>
               <IoIosArrowDown
                 className={[
