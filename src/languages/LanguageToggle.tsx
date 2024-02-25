@@ -11,11 +11,11 @@ function LanguageToggle() {
   };
 
   return (
-    <section className="flex">
+    <section className="flex font-pretendard">
       {languages.map((lang, index) => (
         <div key={lang.code}>
           <span
-            className={`text-sm font-bold cursor-pointer ${
+            className={`text-xs sm:text-sm font-bold cursor-pointer ${
               currentLanguage === lang.code ? 'text-black' : 'text-gray-400'
             }`}
             onClick={() => changeLanguage(lang.code)}
