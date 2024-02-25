@@ -129,7 +129,7 @@ export default function Posts({ studyList }: { studyList: StudyItem[] }) {
         </section>
       </section>
       <section>
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 ">
           {sortedItems.map((item, index) => (
             <div
               className="flex flex-col p-4 bg-white border-2 border-gray-300 rounded-2xl hover:shadow-lg hover:cursor-pointer"
