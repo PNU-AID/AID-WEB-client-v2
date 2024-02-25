@@ -54,7 +54,7 @@ export default function Modal({ isOpen, onClose, selectedItem }: ModalProps) {
                 )}
               </p>
               <p>
-                <AiOutlineUser className="inline-block mr-2" />
+                <AiOutlineUser className="inline-block mr-2" />{' '}
                 {selectedItem.study_type === 'Study'
                   ? '스터디장'
                   : '프로젝트장'}
