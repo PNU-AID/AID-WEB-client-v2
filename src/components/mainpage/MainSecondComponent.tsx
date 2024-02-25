@@ -59,7 +59,9 @@ function MainSecondComponent({ activeSection }: MainSecondComponentProps) {
                   </a>
                 </div>
                 <div className="flex w-full">
-                  <label>{t('subject_to_recruitment')}: </label>
+                  <label className="text-nowrap">
+                    {t('subject_to_recruitment')}:{' '}
+                  </label>
                   <span className="ml-auto max-w-[270px] text-wrap text-end">
                     {currentLanguage === 'ko'
                       ? recruitInfo?.ko.recruitment_target
