@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import svgr from 'vite-plugin-svgr';
@@ -9,9 +8,6 @@ const __dirname = path.resolve();
 export default defineConfig({
   base: '/homepage/',
   plugins: [react(), svgr()],
-  test: {
-    globals: true,
-  },
   server: {
     port: 3000,
   },
