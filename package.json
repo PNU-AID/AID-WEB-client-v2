@@ -10,9 +10,7 @@
     "preview": "vite preview",
     "format": "prettier --write --cache .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "postinstall": "husky install",
-    "test": "vitest",
-    "test:run": "vitest run"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@types/i18next": "^13.0.0",
@@ -53,8 +51,7 @@
     "prettier": "^3.1.0",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vitest": "^1.2.1"
+    "vite": "^5.0.0"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --fix"
