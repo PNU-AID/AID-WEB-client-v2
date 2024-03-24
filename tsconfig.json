@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
-    "types": ["vite-plugin-svgr/client", "vitest/globals"],
+    "types": ["vite-plugin-svgr/client"],
 
     /* Import Alias */
     "baseUrl": "./src",
